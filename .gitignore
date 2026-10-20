@@ -1,0 +1,15 @@
+# Compiled class files
+*.class
+bin/
+*/bin/
+
+# Compile logs
+compile_error.log
+evidence/*/compile_error.log
+
+# OS & IDE metadata
+.DS_Store
+Thumbs.db
+*.swp
+.vscode/
+.idea/
