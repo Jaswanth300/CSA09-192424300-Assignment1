@@ -1,11 +1,11 @@
 # SIMATS Java Programming Assignment 1: Campus Smart-Parking System
 
 ## Student Credentials
-- **Student Name**: BALA NAGA JASWANTH
-- **Register Number**: 192424300C
+- **Student Name**: Bala Naga Jaswanth
+- **Register Number**: 192424300
 - **Course Outcome**: CO1: Java fundamentals and object-oriented programming
-- **Mandatory Repository Name**: `CSA09-192424300C-Assignment1`
-- **GitHub Repository Link**: `https://github.com/Jaswanth/CSA09-192424300C-Assignment1`
+- **Mandatory Repository Name**: `CSA09-192424300-Assignment1`
+- **GitHub Repository Link**: `https://github.com/Jaswanth300/CSA09-192424300-Assignment1`
 - **Target Java Version**: OpenJDK 21 LTS (`javac 21.0.12.1`)
 - **Shell Environment**: Windows PowerShell 5.1
 
