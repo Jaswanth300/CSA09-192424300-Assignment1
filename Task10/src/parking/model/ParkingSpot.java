@@ -1,41 +1,41 @@
 package parking.model;
 
 /**
- * Encapsulated ParkingSpot with defensive mutators.
+ * ParkingSpot model representing a single physical space.
+ * Student: Bala Naga Jaswanth (Reg: 192424300)
  */
 public class ParkingSpot {
-    private final int floor;
-    private final int slot;
-    private Vehicle occupiedBy;
+    private int floor;
+    private int slot;
+    private Vehicle vehicle;
 
     public ParkingSpot(int floor, int slot) {
-        if (floor < 0) throw new IllegalArgumentException("Floor index cannot be negative");
-        if (slot < 0) throw new IllegalArgumentException("Slot index cannot be negative");
         this.floor = floor;
         this.slot = slot;
-        this.occupiedBy = null;
+        this.vehicle = null;
     }
 
-    public int getFloor() { return floor; }
-    public int getSlot() { return slot; }
-    public boolean isFree() { return occupiedBy == null; }
-    public Vehicle getOccupiedBy() { return occupiedBy; }
-
-    public boolean assignVehicle(Vehicle vehicle) {
-        if (vehicle == null) throw new IllegalArgumentException("Cannot assign null vehicle");
-        if (!isFree()) return false;
-        this.occupiedBy = vehicle;
-        return true;
+    public int getFloor() {
+        return floor;
     }
 
-    public Vehicle vacate() {
-        Vehicle previous = this.occupiedBy;
-        this.occupiedBy = null;
-        return previous;
+    public int getSlot() {
+        return slot;
     }
 
-    @Override
-    public String toString() {
-        return "Spot(" + floor + "," + slot + ")=" + (isFree() ? "EMPTY" : occupiedBy.getRegNo());
+    public Vehicle getVehicle() {
+        return vehicle;
+    }
+
+    public boolean isFree() {
+        return vehicle == null;
+    }
+
+    public void park(Vehicle v) {
+        this.vehicle = v;
+    }
+
+    public void vacate() {
+        this.vehicle = null;
     }
 }

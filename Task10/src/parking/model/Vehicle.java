@@ -1,41 +1,26 @@
 package parking.model;
 
-import java.util.Objects;
-
 /**
- * Encapsulated Vehicle base class.
+ * Base Vehicle model demonstrating encapsulation and validated state.
+ * Student: Bala Naga Jaswanth (Reg: 192424300)
  */
 public abstract class Vehicle {
-    // private field: Strict data hiding
-    private final String regNo;
+    private String regNo;
 
-    protected Vehicle(String regNo) {
-        if (regNo == null || regNo.trim().isEmpty()) {
-            throw new IllegalArgumentException("Registration number cannot be null or empty");
-        }
-        this.regNo = regNo.trim().toUpperCase();
+    public Vehicle(String regNo) {
+        setRegNo(regNo);
     }
 
-    public final String getRegNo() {
+    public String getRegNo() {
         return regNo;
     }
 
+    public final void setRegNo(String regNo) {
+        if (regNo == null || regNo.trim().isEmpty()) {
+            throw new IllegalArgumentException("Registration number cannot be blank");
+        }
+        this.regNo = regNo.trim();
+    }
+
     public abstract double ratePerHour();
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Vehicle other)) return false;
-        return Objects.equals(this.regNo, other.regNo);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(regNo);
-    }
-
-    @Override
-    public String toString() {
-        return getClass().getSimpleName() + " [" + regNo + "]";
-    }
 }
