@@ -641,14 +641,15 @@ def build_diagram_e():
 
   <!-- ================= STRATEGY HIERARCHY ================= -->
   <!-- Interface: PricingStrategy -->
-  <g transform="translate(390, 95)" filter="url(#soft-shadow)">
-    <rect width="280" height="110" rx="8" fill="#FFFFFF" stroke="#4338CA" stroke-width="1.5"/>
-    <path d="M 0,8 A 8,8 0 0,1 8,0 L 272,0 A 8,8 0 0,1 280,8 L 280,40 L 0,40 Z" fill="#4338CA"/>
-    <text x="140" y="18" text-anchor="middle" class="cls-meta-text">&lt;&lt;interface&gt;&gt;</text>
-    <text x="140" y="34" text-anchor="middle" class="cls-header-text">PricingStrategy</text>
-    <line x1="0" y1="40" x2="280" y2="40" stroke="#4338CA" stroke-width="1"/>
-    <text x="14" y="68" class="code-member">+ calculateFee(hours: int): double</text>
-    <text x="14" y="90" class="code-comment">/* pluggable polymorphic contract */</text>
+  <g transform="translate(380, 95)" filter="url(#soft-shadow)">
+    <rect width="300" height="115" rx="8" fill="#FFFFFF" stroke="#4338CA" stroke-width="1.5"/>
+    <path d="M 0,8 A 8,8 0 0,1 8,0 L 292,0 A 8,8 0 0,1 300,8 L 300,40 L 0,40 Z" fill="#4338CA"/>
+    <text x="150" y="18" text-anchor="middle" class="cls-meta-text">&lt;&lt;interface&gt;&gt;</text>
+    <text x="150" y="34" text-anchor="middle" class="cls-header-text">PricingStrategy</text>
+    <line x1="0" y1="40" x2="300" y2="40" stroke="#4338CA" stroke-width="1"/>
+    <text x="12" y="66" class="code-member">+ calculateFee(entry, exit): double</text>
+    <text x="12" y="86" class="code-member">+ calculateFee(hours: int): double</text>
+    <text x="12" y="104" class="code-comment">/* dynamic time-of-day strategy contract */</text>
   </g>
 
   <!-- Concrete Strategy 1: HourlyPricing -->
@@ -658,11 +659,11 @@ def build_diagram_e():
     <text x="107" y="24" text-anchor="middle" class="cls-header-text">HourlyPricing</text>
     <line x1="0" y1="36" x2="215" y2="36" stroke="#1E3A8A" stroke-width="1"/>
     <!-- Attributes -->
-    <text x="10" y="58" class="code-member">~ rate: double</text>
+    <text x="10" y="58" class="code-member">- ratePerHour: double</text>
     <line x1="0" y1="68" x2="215" y2="68" stroke="#F1F5F9" stroke-width="1.2"/>
     <!-- Methods -->
     <text x="10" y="90" class="code-member">+ HourlyPricing(rate)</text>
-    <text x="10" y="110" class="code-member">+ calculateFee(h)</text>
+    <text x="10" y="110" class="code-member">+ calculateFee(entry, exit)</text>
   </g>
 
   <!-- Concrete Strategy 2: FlatPricing -->
@@ -672,24 +673,25 @@ def build_diagram_e():
     <text x="107" y="24" text-anchor="middle" class="cls-header-text">FlatPricing</text>
     <line x1="0" y1="36" x2="215" y2="36" stroke="#0F766E" stroke-width="1"/>
     <!-- Attributes -->
-    <text x="10" y="58" class="code-member">~ fee: double</text>
+    <text x="10" y="58" class="code-member">- flatFee: double = 15.0</text>
     <line x1="0" y1="68" x2="215" y2="68" stroke="#F1F5F9" stroke-width="1.2"/>
     <!-- Methods -->
     <text x="10" y="90" class="code-member">+ FlatPricing(fee)</text>
-    <text x="10" y="110" class="code-member">+ calculateFee(h)</text>
+    <text x="10" y="110" class="code-member">+ calculateFee(entry, exit)</text>
   </g>
 
   <!-- Concrete Strategy 3: DeliveryPricing -->
   <g transform="translate(760, 275)" filter="url(#soft-shadow)">
-    <rect width="220" height="125" rx="8" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5"/>
-    <path d="M 0,8 A 8,8 0 0,1 8,0 L 212,0 A 8,8 0 0,1 220,8 L 220,36 L 0,36 Z" fill="#D97706"/>
-    <text x="110" y="24" text-anchor="middle" class="cls-header-text">DeliveryPricing</text>
-    <line x1="0" y1="36" x2="220" y2="36" stroke="#D97706" stroke-width="1"/>
+    <rect width="225" height="135" rx="8" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5"/>
+    <path d="M 0,8 A 8,8 0 0,1 8,0 L 217,0 A 8,8 0 0,1 225,8 L 225,36 L 0,36 Z" fill="#D97706"/>
+    <text x="112" y="24" text-anchor="middle" class="cls-header-text">DeliveryPricing</text>
+    <line x1="0" y1="36" x2="225" y2="36" stroke="#D97706" stroke-width="1"/>
     <!-- Methods -->
-    <text x="10" y="60" class="code-member">+ calculateFee(h): dbl</text>
-    <text x="18" y="76" class="code-comment">/* Peak: h * Rs 60.0 */</text>
-    <text x="10" y="96" class="code-member">+ offPeakFee(h): dbl</text>
-    <text x="18" y="112" class="code-comment">/* Off-Peak: h * Rs 30.0 */</text>
+    <text x="10" y="58" class="code-member">+ calculateFee(entry, exit)</text>
+    <text x="16" y="74" class="code-comment">/* 9 AM-5 PM: Rs 60.0/hr */</text>
+    <text x="16" y="90" class="code-comment">/* Off-Peak: Rs 30.0/hr */</text>
+    <text x="16" y="106" class="code-comment">/* Boundary split &amp; ceiling */</text>
+    <text x="16" y="122" class="code-comment">/* (pk_m+59)/60 + (off_m+59)/60 */</text>
   </g>
 
   <!-- ================= DOMAIN ENTITY: ParkingVehicle ================= -->
@@ -705,28 +707,30 @@ def build_diagram_e():
     <line x1="0" y1="92" x2="280" y2="92" stroke="#F1F5F9" stroke-width="1.2"/>
     <!-- Methods -->
     <text x="12" y="114" class="code-member">~ ParkingVehicle(reg, pricing)</text>
-    <text x="12" y="136" class="code-member">+ fee(hours: int): double</text>
+    <text x="12" y="136" class="code-member">+ fee(entry, exit): double</text>
   </g>
 
   <!-- ================= PASS SUBSYSTEM ================= -->
   <!-- Interface: Pass -->
-  <g transform="translate(780, 95)" filter="url(#soft-shadow)">
-    <rect width="210" height="90" rx="8" fill="#FFFFFF" stroke="#6D28D9" stroke-width="1.5"/>
-    <path d="M 0,8 A 8,8 0 0,1 8,0 L 202,0 A 8,8 0 0,1 210,8 L 210,36 L 0,36 Z" fill="#6D28D9"/>
-    <text x="105" y="18" text-anchor="middle" class="cls-meta-text">&lt;&lt;interface&gt;&gt;</text>
-    <text x="105" y="32" text-anchor="middle" class="cls-header-text">Pass</text>
-    <line x1="0" y1="36" x2="210" y2="36" stroke="#6D28D9" stroke-width="1"/>
-    <text x="12" y="62" class="code-member">+ isValid(hours): boolean</text>
+  <g transform="translate(770, 95)" filter="url(#soft-shadow)">
+    <rect width="220" height="95" rx="8" fill="#FFFFFF" stroke="#6D28D9" stroke-width="1.5"/>
+    <path d="M 0,8 A 8,8 0 0,1 8,0 L 212,0 A 8,8 0 0,1 220,8 L 220,36 L 0,36 Z" fill="#6D28D9"/>
+    <text x="110" y="18" text-anchor="middle" class="cls-meta-text">&lt;&lt;interface&gt;&gt;</text>
+    <text x="110" y="32" text-anchor="middle" class="cls-header-text">Pass</text>
+    <line x1="0" y1="36" x2="220" y2="36" stroke="#6D28D9" stroke-width="1"/>
+    <text x="12" y="60" class="code-member">+ isValidAt(time): boolean</text>
+    <text x="12" y="80" class="code-member">+ getPrice(): double</text>
   </g>
 
   <!-- Class: OneDayPass -->
-  <g transform="translate(780, 210)" filter="url(#soft-shadow)">
-    <rect width="210" height="95" rx="8" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5"/>
-    <path d="M 0,8 A 8,8 0 0,1 8,0 L 202,0 A 8,8 0 0,1 210,8 L 210,32 L 0,32 Z" fill="#7C3AED"/>
-    <text x="105" y="21" text-anchor="middle" class="cls-header-text">OneDayPass</text>
-    <text x="12" y="54" class="code-member">~ price: double = 100.0</text>
-    <text x="12" y="74" class="code-member">+ isValid(hours): boolean</text>
-    <text x="12" y="88" class="code-comment">/* 0 &lt;= hours &lt;= 24 */</text>
+  <g transform="translate(770, 210)" filter="url(#soft-shadow)">
+    <rect width="220" height="105" rx="8" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5"/>
+    <path d="M 0,8 A 8,8 0 0,1 8,0 L 212,0 A 8,8 0 0,1 220,8 L 220,32 L 0,32 Z" fill="#7C3AED"/>
+    <text x="110" y="21" text-anchor="middle" class="cls-header-text">OneDayPass</text>
+    <text x="10" y="50" class="code-member">- price: double = 100.0</text>
+    <text x="10" y="68" class="code-member">- issueTime, expiryTime</text>
+    <text x="10" y="86" class="code-member">+ isValidAt(time): boolean</text>
+    <text x="10" y="99" class="code-comment">/* issueTime + 24 hrs window */</text>
   </g>
 
   <!-- ================= ADAPTED FACILITY ================= -->
@@ -750,17 +754,17 @@ def build_diagram_e():
 
   <!-- Connectors (Clean Orthogonal, Zero Overlap) -->
   <!-- Strategy Implementations to PricingStrategy -->
-  <path d="M 387,275 L 387,240 L 490,240 L 490,205" fill="none" stroke="#4338CA" stroke-width="2" stroke-dasharray="6,4" marker-end="url(#realization)"/>
-  <path d="M 627,275 L 627,240 L 530,240 L 530,205" fill="none" stroke="#4338CA" stroke-width="2" stroke-dasharray="6,4" marker-end="url(#realization)"/>
-  <path d="M 870,275 L 870,240 L 570,240 L 570,205" fill="none" stroke="#4338CA" stroke-width="2" stroke-dasharray="6,4" marker-end="url(#realization)"/>
+  <path d="M 387,275 L 387,240 L 490,240 L 490,210" fill="none" stroke="#4338CA" stroke-width="2" stroke-dasharray="6,4" marker-end="url(#realization)"/>
+  <path d="M 627,275 L 627,240 L 530,240 L 530,210" fill="none" stroke="#4338CA" stroke-width="2" stroke-dasharray="6,4" marker-end="url(#realization)"/>
+  <path d="M 870,275 L 870,240 L 570,240 L 570,210" fill="none" stroke="#4338CA" stroke-width="2" stroke-dasharray="6,4" marker-end="url(#realization)"/>
 
   <!-- OneDayPass to Pass -->
-  <path d="M 885,210 L 885,185" fill="none" stroke="#6D28D9" stroke-width="2" stroke-dasharray="6,4" marker-end="url(#realization)"/>
+  <path d="M 880,210 L 880,190" fill="none" stroke="#6D28D9" stroke-width="2" stroke-dasharray="6,4" marker-end="url(#realization)"/>
 
   <!-- ParkingVehicle to PricingStrategy -->
-  <path d="M 315,150 L 390,150" fill="none" stroke="#1E3A8A" stroke-width="2" marker-start="url(#aggregation)" marker-end="url(#assoc-arrow)"/>
+  <path d="M 315,150 L 380,150" fill="none" stroke="#1E3A8A" stroke-width="2" marker-start="url(#aggregation)" marker-end="url(#assoc-arrow)"/>
   <text x="325" y="142" class="mult-label">1</text>
-  <text x="375" y="142" class="mult-label">1</text>
+  <text x="365" y="142" class="mult-label">1</text>
 
   <!-- Architectural Defense & OCP Panel -->
   <g transform="translate(35, 485)" filter="url(#soft-shadow)">
@@ -774,10 +778,10 @@ def build_diagram_e():
     <text x="28" y="80" class="card-body">&#x2022; Subsystem is open for extension but closed for modification. Introducing new vehicle categories (e.g., Autonomous Shuttles, Drones) or pricing schemes</text>
     <text x="28" y="98" class="card-body">  requires creating a new PricingStrategy class without altering a single line of ParkingVehicle or AdaptedParkingFacility code.</text>
 
-    <text x="20" y="124" font-family="'Segoe UI', sans-serif" font-size="12" font-weight="bold" fill="#78350F">2. Verified Business Rules &amp; Pricing Policies:</text>
+    <text x="20" y="124" font-family="'Segoe UI', sans-serif" font-size="12" font-weight="bold" fill="#78350F">2. Verified Business Rules &amp; Dynamic Pricing Policies:</text>
     <text x="28" y="144" class="card-body">&#x2022; E-Bike Flat Fee: FlatPricing(15.0) guarantees fixed Rs 15.0 regardless of whether parked 30 minutes or 10 hours.</text>
-    <text x="28" y="162" class="card-body">&#x2022; Delivery Van Peak / Off-Peak: 2 hours in peak window (Rs 60/hr) &#x2192; Rs 120.0; 2 hours off-peak (Rs 30/hr) &#x2192; Rs 60.0.</text>
-    <text x="28" y="180" class="card-body">&#x2022; Visitor Pass: OneDayPass costs Rs 100.0 upfront; isValid(24) returns true and waives per-hour exit billing (Rs 0.0 at gate).</text>
+    <text x="28" y="162" class="card-body">&#x2022; Delivery Van Time-of-Day Window: 10:00&#x2013;12:00 peak (Rs 60/hr) &#x2192; Rs 120.0; 06:00&#x2013;08:00 off-peak (Rs 30/hr) &#x2192; Rs 60.0; 08:00&#x2013;10:00 boundary (1h off-peak + 1h peak) &#x2192; Rs 90.0.</text>
+    <text x="28" y="180" class="card-body">&#x2022; Visitor Pass: OneDayPass costs Rs 100.0 (24h window); valid exit at 5h waives fee (Rs 0.0); expired exit at 26h charges standard stay (Rs 60.0).</text>
     <text x="28" y="198" class="card-body">&#x2022; Non-Uniform Structural Capacity: Floor 0 (30) + Floor 1 (25) + Floor 2 (20) + Floor 3 (15) + Floor 4 (10) = 100 Total Slots exactly.</text>
   </g>
 </svg>"""

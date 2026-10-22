@@ -57,7 +57,7 @@ Assessment-1/
 | **Task 09** | 4 | Abstract class `Vehicle` for state inheritance and orthogonal capability interfaces `Chargeable` and `Payable`. Default interface methods for service surcharges. |
 | **Task 10** | 3 | Package encapsulation across `parking.model`, `parking.service`, and `parking.app`. Defensive mutator input validation and analysis of Java's `IntegerCache` autoboxing trap. |
 | **Task 11** | 5 | Integrated parking system verification suite. Tests nominal entries, floor exhaustion, duplicate checks, zero-duration grace, and exact match to hand-calculated revenue benchmark (**Rs 230.0**). |
-| **Task 12** | 8 | Day-4 Design Challenge: Decoupled pricing using the Strategy Pattern (`PricingStrategy`). Handles E-Bike flat fees (Rs 15.0), Delivery Van peak (9 AM–5 PM, Rs 120 vs Rs 60 off-peak), 24-hr One-Day Pass (Rs 100), and 5-floor non-uniform layout (100 total slots). |
+| **Task 12** | 8 | Day-4 Design Challenge: Decoupled dynamic pricing via Strategy Pattern (`PricingStrategy`). Evaluates Delivery Van peak (10:00–12:00 @ Rs 60/hr $\rightarrow$ Rs 120.0), off-peak (06:00–08:00 @ Rs 30/hr $\rightarrow$ Rs 60.0), and boundary crossing (08:00–10:00 $\rightarrow$ Rs 90.0). Demonstrates One-Day Pass (Rs 100.0) 24-hour validity with exit fee waiver at 5 hours (Rs 0.0) and charge after expiry at 26 hours (Rs 60.0). Preserves E-Bike flat fee (Rs 15.0) and 5-floor non-uniform layout (100 total slots). |
 
 ---
 

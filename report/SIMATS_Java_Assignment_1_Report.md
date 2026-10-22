@@ -381,43 +381,47 @@ Implemented an integrated parking facility covering normal operations, edge boun
 #### Changed Requirements & Documented Engineering Assumptions
 1. **E-Bikes Category**: Charged a flat fee regardless of duration.
    - *Documented Engineering Assumption*: Flat fee set to **Rs 15.0**.
-2. **Delivery Vans Category**: Charged double the car rate during business hours 9 AM–5 PM.
-   - *Documented Engineering Assumption*: Rate is $2 \times 30 = \textbf{Rs 60.0/hr}$ during 9 AM–5 PM; off-peak rate outside 9 AM–5 PM is standard car rate of **Rs 30.0/hr**.
+2. **Delivery Vans Category**: Charged double the car rate during 9 AM–5 PM.
+   - *Documented Engineering Assumption*: Rate is  \times 30 = \textbf{Rs 60.0/hr}$ during 9 AM–5 PM; off-peak rate outside 9 AM–5 PM is standard car rate of **Rs 30.0/hr**.
+   - *Rounding Policy*: The session is partitioned into peak minutes (09:00–17:00) and off-peak minutes (outside 09:00–17:00). Each segment is independently rounded up using the ceiling rule (minutes + 59) / 60, then multiplied by its rate.
 3. **One-Day Pass Feature**: Visitors can purchase a 24-hour pass for unlimited entry/exit.
-   - *Documented Engineering Assumption*: Pass price set to flat **Rs 100.0** (valid 24 hours).
+   - *Documented Engineering Assumption*: Pass price set to flat **Rs 100.0**, activated with an issue timestamp and valid for exactly 24 hours. A valid pass waives the parking exit fee (Rs 0.0); an expired pass charges the standard stay duration.
 4. **Extended Facility**: 5 floors with non-uniform slots per floor.
-   - *Documented Engineering Assumption*: Floor 0: 30, Floor 1: 25, Floor 2: 20, Floor 3: 15, Floor 4: 10 slots (Total: 100 slots).
+   - *Documented Engineering Assumption*: Floor capacities: Floor 0: 30, Floor 1: 25, Floor 2: 20, Floor 3: 15, Floor 4: 10 slots (Total: 100 slots).
 
 #### Subpart A: Impact Analysis (2 Marks)
-- The introduction of non-uniform slot counts across 5 floors invalidates rectangular arrays. A jagged array `Vehicle[][]` is mandatory to avoid allocating memory for non-existent slots on higher floors.
-- Dynamic time-dependent rates (Delivery Vans) and duration-independent fees (E-Bikes) break the simple static `ratePerHour()` contract from earlier tasks.
+- The introduction of non-uniform slot counts across 5 floors invalidates rectangular arrays. A jagged array Vehicle[][] is mandatory to avoid allocating memory for non-existent slots on higher floors.
+- Dynamic time-dependent rates (Delivery Vans) and duration-independent fees (E-Bikes) break the simple static 
+atePerHour() contract from earlier tasks.
 
 #### Subpart B: Evaluation of Original Design (2 Marks)
 - The original design embedded rate calculations directly inside vehicle classes. Adding surge pricing or time-of-day windows would require rewriting vehicle classes, violating the Open-Closed Principle (OCP).
-- **Redesign Decision**: Decouple pricing into a `PricingStrategy` interface (Strategy Pattern).
+- **Redesign Decision**: Decouple pricing into a PricingStrategy interface (Strategy Pattern).
 
 #### Subpart C: Adaptation or Redesign Implementation (2 Marks)
-- Implemented `PricingStrategy` hierarchy: `HourlyRateStrategy`, `FlatFeeStrategy`, and `DeliveryVanPricingStrategy`.
-- Implemented `Pass` interface and `OneDayPass` class.
-- Configured 5-floor jagged facility (`int[]{30, 25, 20, 15, 10}`).
+- Implemented PricingStrategy hierarchy: HourlyPricing, FlatPricing, and DeliveryPricing (handling 9 AM–5 PM peak vs off-peak window overlap).
+- Implemented Pass interface and OneDayPass class (managing 24-hour validity window from issue time).
+- Configured 5-floor jagged facility (int[]{30, 25, 20, 15, 10}).
 
 #### Subpart D: Evidence-Based Defence (2 Marks)
-- **Zero Existing Class Modifications**: By refactoring to the Strategy pattern, new vehicle types (`EBike`, `DeliveryVan`) were introduced purely by extension.
+- **Zero Existing Class Modifications**: By refactoring to the Strategy pattern, new vehicle categories and dynamic pricing rules were introduced purely by extension.
 - **Empirical Test Verification**:
-  1. E-Bike: 30 mins = Rs 15.0; 360 mins = Rs 15.0 (Flat fee verified).
-  2. Delivery Van: 10 AM–12 PM (peak) = Rs 120.0 ($2 \times 60$); 6 PM–8 PM (off-peak) = Rs 60.0 ($2 \times 30$).
-  3. One-Day Pass: Pass cost = Rs 100.0; 1st exit (180 mins) = Rs 0.0; 2nd exit (240 mins) = Rs 0.0.
-  4. 5-Floor Allocation: Verified seamless spot allocation across non-uniform floors without index exceptions.
+  1. **E-Bike**: Flat fee Rs 15.0 regardless of stay duration.
+  2. **Delivery Van (Peak-Only)**: 10:00–12:00 (2h @ Rs 60/hr) = Rs 120.0.
+  3. **Delivery Van (Off-Peak-Only)**: 06:00–08:00 (2h @ Rs 30/hr) = Rs 60.0.
+  4. **Delivery Van (Boundary Crossing)**: 08:00–10:00 (1h off-peak @ Rs 30 + 1h peak @ Rs 60) = Rs 90.0.
+  5. **One-Day Pass (Valid)**: Exit at 5h after issue = Rs 0.0 (fee waived).
+  6. **One-Day Pass (Expired)**: Exit at 26h after issue = Rs 60.0 (charged 2h standard stay @ Rs 30/hr).
+  7. **5-Floor Jagged Allocation**: Total 100 slots allocated and managed without index errors.
 
-- Source: [`TASKS/Task12/AdaptedSmartParkingSystem.java`](../TASKS/Task12/AdaptedSmartParkingSystem.java)
-- Output Log: [`TASKS/Task12/evidence/terminal_output.txt`](../TASKS/Task12/evidence/terminal_output.txt)
+| Test ID | Scenario & Inputs | Applied Strategy | Expected Output | Actual Output | Status |
+| :--- | :--- | :--- | :--- | :--- | :---: |
+| TC_12_01 | E-Bike Flat Fee | FlatPricing(15.0) | Fixed Rs 15.0 | Rs 15.0 | Pass |
+| TC_12_02 | Van Peak Only (10:00–12:00) | DeliveryPricing (Peak 60/hr) | 2 hrs * Rs 60 = Rs 120.0 | Rs 120.0 | Pass |
+| TC_12_03 | Van Off-Peak (06:00–08:00) | DeliveryPricing (Off-Peak 30/hr) | 2 hrs * Rs 30 = Rs 60.0 | Rs 60.0 | Pass |
+| TC_12_04 | Van Boundary (08:00–10:00) | DeliveryPricing (1h off + 1h pk) | 1*30 + 1*60 = Rs 90.0 | Rs 90.0 | Pass |
+| TC_12_05 | One-Day Pass (5h, Valid) | OneDayPass (Price Rs 100.0) | Valid: true, Exit waived: Rs 0.0 | Valid: true, Exit: Rs 0.0 | Pass |
+| TC_12_06 | One-Day Pass (26h, Expired) | OneDayPass (Expired) | Valid: false, Charge 2h: Rs 60.0 | Valid: false, Fee: Rs 60.0 | Pass |
+| TC_12_07 | 5-Floor Jagged Capacity | AdaptedParkingFacility | Total slots: 100 | Total slots: 100 | Pass |
 
----
 
-## Conclusion & Learning Outcomes
-
-Through this assignment, the following competencies in Java and Object-Oriented Software Engineering were validated:
-1. **Encapsulation & Robustness**: Guarded data representation and defensive mutators protect object state against invalid inputs.
-2. **Polymorphic Extensibility**: Replacing brittle switch/if-else cascades with dynamic method dispatch drastically improves maintainability and satisfies the Open-Closed Principle.
-3. **Behavioral Decoupling**: Combining abstract classes for structural identity with interfaces for orthogonal behavioral capabilities produces flexible, clean architectures.
-4. **Empirical Quality Assurance**: Every single task was compiled with zero lint warnings under OpenJDK 21 and verified with actual execution traces.

@@ -1,13 +1,16 @@
-Total slots: 100
+﻿Total slots: 100
 Car parked: true
 E-bike parked: true
 Van parked: true
 Car fee (2 hours): Rs 60.0
-E-bike fee: Rs 15.0
-Van peak fee (2 hours): Rs 120.0
-Van off-peak fee (2 hours): Rs 60.0
+E-bike fee (flat rate): Rs 15.0
+Van peak fee (10:00 to 12:00, 2h peak @ Rs 60): Rs 120.0
+Van off-peak fee (06:00 to 08:00, 2h off-peak @ Rs 30): Rs 60.0
+Van boundary fee (08:00 to 10:00, 1h off-peak + 1h peak): Rs 90.0
 Pass price: Rs 100.0
-Pass valid for 24 hours: true
+Pass valid at Day 1 14:00 (5h after issue): true
 Pass waives exit fee: Rs 0.0
+Pass valid at Day 2 11:00 (26h after issue): false
+Fee with expired pass (2h stay @ Rs 30): Rs 60.0
 Car removed: true
 Invalid vehicle removed: false

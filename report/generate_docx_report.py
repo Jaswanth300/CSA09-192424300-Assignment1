@@ -1095,8 +1095,8 @@ def create_report():
     headers_assump = ["Changed Requirement", "Mandated by Assignment PDF", "Documented Engineering Assumption", "Rationale"]
     rows_assump = [
         ["E-Bikes Category", "Charged a FLAT FEE regardless of duration", "Flat fee set to Rs 15.0 per session", "Nominal flat rate between bike (Rs 10) and car (Rs 30)"],
-        ["Delivery Vans", "Charged DOUBLE the car rate during 9 AM–5 PM", "Peak rate = Rs 60.0/hr; Off-peak = Rs 30.0/hr", "2x Car rate (2*30=60) during business hours; 1x off-peak"],
-        ["Visitor Pass", "Visitors may now buy a ONE-DAY PASS", "Pass price set to flat Rs 100.0 (valid 24 hrs)", "Covers unlimited entries/exits within 24-hr epoch window"],
+        ["Delivery Vans", "Charged DOUBLE the car rate during 9 AM–5 PM", "Peak: Rs 60/hr (09:00–17:00); Off-peak: Rs 30/hr. Partitioned ceil((m+59)/60)", "2x Car rate during peak; 1x off-peak; ceiling rounding per window"],
+        ["Visitor Pass", "Visitors may now buy a ONE-DAY PASS", "Pass price flat Rs 100.0, valid 24h from issue. Valid waives fee; expired charges stay", "Covers unlimited entries/exits within 24-hr epoch window"],
         ["5-Floor Extension", "Extended to 5 floors with non-uniform slots", "Floor capacities: [30, 25, 20, 15, 10] (100 total)", "Models real-world taper; non-uniform sizes prove jagged array"]
     ]
     add_data_table(headers_assump, rows_assump, [1.3, 1.8, 1.9, 1.8])
@@ -1119,11 +1119,11 @@ def create_report():
     add_heading_2("4. Subpart C: Adaptation & Implementation Architecture (2 Marks)")
     doc.add_paragraph(
         "Pricing is decoupled into a pluggable Strategy Pattern architecture:\n"
-        "• PricingStrategy (Interface): Defines calculateFee(int hours).\n"
+        "• PricingStrategy (Interface): Defines calculateFee(entryTime, exitTime) with default duration adapter.\n"
         "• HourlyPricing: Standard duration-based billing (Car @ Rs 30/hr).\n"
         "• FlatPricing: Fixed flat fee regardless of duration (E-Bike @ Rs 15.0).\n"
-        "• DeliveryPricing: Peak window billing (Rs 60/hr) and off-peak billing (Rs 30/hr).\n"
-        "• Pass Interface & OneDayPass: Manages 24-hour pass validity, waiving per-exit fees."
+        "• DeliveryPricing: Evaluates actual time overlap with 9 AM–5 PM peak window (Rs 60/hr) vs off-peak (Rs 30/hr) with partitioned ceiling rounding.\n"
+        "• Pass Interface & OneDayPass: Manages 24-hour pass validity from issue timestamp, waiving exit fees during validity and charging standard stay upon expiration."
     )
 
     add_figure("D:/Data/Development/College/Java/Assessment-1/diagrams/task12_adapted_system.png",
@@ -1137,11 +1137,13 @@ def create_report():
     )
     headers_t12 = ["Test Case", "Scenario & Inputs", "Applied Strategy", "Expected Result", "Actual Result", "Status"]
     rows_t12 = [
-        ["TC_12_01", "E-Bike 2 hrs (TN06F6)", "FlatPricing(15.0)", "Identical flat fee Rs 15.0", "Rs 15.0", "Pass"],
-        ["TC_12_02", "Delivery Van Peak 2 hrs (TN07G7)", "DeliveryPricing (Peak 60/hr)", "2 hrs * Rs 60 = Rs 120.0", "Rs 120.0", "Pass"],
-        ["TC_12_03", "Delivery Van Off-Peak 2 hrs (TN07G7)", "DeliveryPricing (Off-Peak 30/hr)", "2 hrs * Rs 30 = Rs 60.0", "Rs 60.0", "Pass"],
-        ["TC_12_04", "Visitor 24-Hr One-Day Pass", "OneDayPass (Price Rs 100.0)", "Valid 24 hrs (true), Exit waived: Rs 0.0", "Valid: true, Exit: Rs 0.0", "Pass"],
-        ["TC_12_05", "5-Floor Jagged Allocation", "Capacities [30, 25, 20, 15, 10]", "100 total slots allocated safely", "Total slots: 100", "Pass"]
+        ["TC_12_01", "E-Bike Flat Rate (8:00–14:00)", "FlatPricing(15.0)", "Fixed flat fee Rs 15.0", "Rs 15.0", "Pass"],
+        ["TC_12_02", "Van Peak Only (10:00–12:00)", "DeliveryPricing (Peak 60/hr)", "2 hrs * Rs 60 = Rs 120.0", "Rs 120.0", "Pass"],
+        ["TC_12_03", "Van Off-Peak (06:00–08:00)", "DeliveryPricing (Off-Peak 30/hr)", "2 hrs * Rs 30 = Rs 60.0", "Rs 60.0", "Pass"],
+        ["TC_12_04", "Van Boundary (08:00–10:00)", "DeliveryPricing (1h off + 1h pk)", "1*30 + 1*60 = Rs 90.0", "Rs 90.0", "Pass"],
+        ["TC_12_05", "Visitor Pass (5h, Valid)", "OneDayPass (Price Rs 100.0)", "Valid: true, Exit waived: Rs 0.0", "Valid: true, Exit: Rs 0.0", "Pass"],
+        ["TC_12_06", "Visitor Pass (26h, Expired)", "OneDayPass (Expired)", "Valid: false, Charge 2h: Rs 60.0", "Valid: false, Fee: Rs 60.0", "Pass"],
+        ["TC_12_07", "5-Floor Jagged Capacity", "AdaptedParkingFacility", "100 total slots allocated safely", "Total slots: 100", "Pass"]
     ]
     add_data_table(headers_t12, rows_t12, [0.8, 1.8, 1.6, 1.4, 1.2, 0.7])
 
