@@ -1,194 +1,149 @@
-# SIMATS Java Programming Assignment 1: Campus Smart-Parking System
+# Campus Smart-Parking System (Java Programming - CSA0921)
 
-## Student Credentials
+This repository contains the object-oriented implementation, empirical test evidence, architecture diagrams, and academic report for the Campus Smart-Parking System (SIMATS Java Programming Assignment 1, Total: 50 Marks). The project models a multi-level campus parking facility under OpenJDK 21 LTS, progressing through problem analysis, control logic, inheritance hierarchies, polymorphic billing, modular encapsulation, and Strategy Pattern design adaptation.
+
+## Academic & Repository Details
 - **Student Name**: Bala Naga Jaswanth
-- **Register Number**: 192424300
-- **Course Outcome**: CO1: Java fundamentals and object-oriented programming
-- **Mandatory Repository Name**: `CSA09-192424300-Assignment1`
-- **GitHub Repository Link**: `https://github.com/Jaswanth300/CSA09-192424300-Assignment1`
-- **Target Java Version**: OpenJDK 21 LTS (`javac 21.0.12.1`)
-- **Shell Environment**: Windows PowerShell 5.1
+- **Registration Number**: 192424300
+- **Course / Subject**: Java Programming
+- **Course Code**: CSA0921
+- **Target Java Version**: OpenJDK 21 LTS
+- **GitHub Repository**: https://github.com/Jaswanth300/CSA09-192424300-Assignment1
 
 ---
 
-## Project Overview
-
-This repository contains the complete, verified implementation and documentation for the **Campus Smart-Parking System** (SIMATS Java Programming Assignment 1, Total: 50 Marks). Every task has been designed and implemented in strict accordance with the official assignment specification (`SIMATS_Java_Assignment_1.pdf`), compiled with zero warnings under OpenJDK 21, and backed by genuine execution output logs.
-
----
-
-## Directory Structure
+## Repository Structure
 
 ```
 Assessment-1/
-├── .gitignore                                 # Git ignore file for binaries and logs
-├── README.md                                  # Repository overview, compile & run instructions
-├── SIMATS_Java_Assignment_1.pdf               # Original assignment specification (Source of Truth)
-├── diagrams/
-│   └── class_diagrams.md                      # UML Class, Sequence & Strategy diagrams
-├── evidence/
-│   ├── Task01/ ... Task12/
-│   │   ├── terminal_output.txt                # Genuine captured console output transcripts
-│   │   └── screenshot_TaskXX.png              # Windows Snipping Tool execution screenshots
-├── report/
-│   └── SIMATS_Java_Assignment_1_Report.md     # Comprehensive 50-mark academic report
-├── Task01/
-│   └── Task01_ModelAnalysis.java              # Problem analysis & candidate object models
-├── Task02/
-│   └── DataRepresentationDemo.java            # Data types, casting risks, and jagged arrays
-├── Task03/
-│   └── ParkingFacility.java                   # Slot allocation & release (Complete the Code)
-├── Task04/
-│   └── ConstructorDemo.java                   # Constructor chaining & memory model
-├── Task05/
-│   └── TicketLifecycleDemo.java               # Static members & GC object lifecycle
-├── Task06/
-│   └── VehicleHierarchyDemo.java              # Inheritance hierarchy & constructor trace
-├── Task07/
-│   └── VehicleOverrideDemo.java               # Method overriding & Object method contracts
-├── Task08/
-│   └── FeeDemo.java                           # Polymorphism & dynamic dispatch (Complete the Code)
-├── Task09/
-│   └── AbstractionDemo.java                   # Abstract classes & multi-interface capability
-├── Task10/
-│   └── src/parking/                           # Encapsulation via packages (model, service, app)
-├── Task11/
-│   └── SmartParkingSystem.java                # Complete integrated system & verification suite
-└── Task12/
-    └── AdaptedSmartParkingSystem.java         # Day-4 Design Challenge (E-Bikes, Vans, Passes, 5 Floors)
+├── README.md                                  # Project overview and execution guide
+├── .gitignore                                 # Ignore rules for class binaries and temporary files
+├── diagrams/                                  # Publication-quality architecture and UML diagrams
+│   ├── class_diagrams.md                      # Diagram documentation & specifications
+│   ├── generate_figma_diagrams.py             # Script to regenerate vector SVGs and 300 DPI PNGs
+│   ├── task06_inheritance.(svg|png)           # Task 06 Vehicle inheritance hierarchy
+│   ├── task10_packages.(svg|png)              # Task 10 Package encapsulation architecture
+│   ├── task11_core_system.(svg|png)           # Task 11 Core system class diagram
+│   ├── sequence_checkin.(svg|png)             # Task 11 Vehicle check-in sequence diagram
+│   └── task12_adapted_system.(svg|png)        # Task 12 Strategy Pattern architecture
+├── report/                                    # Authoritative final assignment report
+│   ├── SIMATS_Java_Assignment_1_Report.docx   # Complete academic report (DOCX, < 10 MB)
+│   ├── SIMATS_Java_Assignment_1_Report.pdf    # Final submission report (PDF, 2.25 MB)
+│   ├── SIMATS_Java_Assignment_1_Report.md     # Full report source text and test tables
+│   └── generate_docx_report.py                # Script to generate DOCX and export PDF
+└── TASKS/                                     # Implementation of Tasks 01 through 12
+    ├── Task01/ ... Task12/
+    │   ├── .project, .classpath, .settings/   # Native Eclipse IDE project configuration
+    │   ├── *.java (or src/ for Task10)        # Verified Java source files
+    │   └── evidence/
+    │       ├── screenshot_TaskXX.png          # Genuine Eclipse IDE execution screenshot
+    │       └── terminal_output.txt            # Captured console execution transcript
 ```
+
+---
+
+## Task Overviews
+
+| Task | Marks | Core Demonstration & Key Result |
+| :--- | :---: | :--- |
+| **Task 01** | 4 | Domain entity extraction (`Vehicle`, `ParkingSpot`, `ParkingTicket`, `ParkingFacility`). Single occupancy validation and double-booking rejection. Comparison of object model vs parallel arrays. |
+| **Task 02** | 3 | Data representation and integer division truncation bug (`59 / 60 = 0` hrs $\rightarrow$ Rs 0.0) vs safe integer ceiling `(59 + 59) / 60 = 1` hr ($\rightarrow$ Rs 30.0). Jagged arrays for non-uniform floor capacities. |
+| **Task 03** | 4 | Control logic and slot allocation in `ParkingFacility.java`. Sequential 2D array search, freeing slots, and re-allocation matching benchmark: `[0, 0]`, `[0, 1]`, `[1, 0]`, `null`, `true false false`, `[0, 1]`. |
+| **Task 04** | 4 | Constructor design with `this(...)` chaining. Copy constructor for issuing duplicate tickets while preserving original entry timestamps. Stack vs heap memory lifecycle. |
+| **Task 05** | 3 | Static sequence generator (`TKT-0001`...) for globally unique ticket IDs, active facility occupancy tracking, and JVM Garbage Collection eligibility upon exit. |
+| **Task 06** | 4 | Hybrid inheritance hierarchy (`Vehicle` $\rightarrow$ `TwoWheeler`, `Vehicle` $\rightarrow$ `Car` $\rightarrow$ `ElectricCar`). Constructor execution order tracing: `Object` $\rightarrow$ `Vehicle` $\rightarrow$ `Car` $\rightarrow$ `ElectricCar`. |
+| **Task 07** | 4 | Overriding `ratePerHour()`, `toString()`, `equals()`, and `hashCode()`. Domain identity based on registration plate numbers to ensure consistent `HashSet` duplicate prevention. |
+| **Task 08** | 4 | Polymorphic dynamic method dispatch in `FeeDemo.java`. Ceiling arithmetic and runtime type dispatch: `TwoWheeler -> Rs 30.0`, `Car -> Rs 90.0`, `ElectricCar -> Rs 210.0`, `true`. |
+| **Task 09** | 4 | Abstract class `Vehicle` for state inheritance and orthogonal capability interfaces `Chargeable` and `Payable`. Default interface methods for service surcharges. |
+| **Task 10** | 3 | Package encapsulation across `parking.model`, `parking.service`, and `parking.app`. Defensive mutator input validation and analysis of Java's `IntegerCache` autoboxing trap. |
+| **Task 11** | 5 | Integrated parking system verification suite. Tests nominal entries, floor exhaustion, duplicate checks, zero-duration grace, and exact match to hand-calculated revenue benchmark (**Rs 230.0**). |
+| **Task 12** | 8 | Day-4 Design Challenge: Decoupled pricing using the Strategy Pattern (`PricingStrategy`). Handles E-Bike flat fees (Rs 15.0), Delivery Van peak (9 AM–5 PM, Rs 120 vs Rs 60 off-peak), 24-hr One-Day Pass (Rs 100), and 5-floor non-uniform layout (100 total slots). |
 
 ---
 
 ## How to Compile and Run Each Task
 
-Ensure you have OpenJDK 21 installed and added to your system PATH. Execute the following commands in PowerShell from the project root (`D:\Data\Development\College\Java\Assessment-1`):
+All tasks compile cleanly under OpenJDK 21 LTS with zero warnings. Run the following commands from the repository root (`D:\Data\Development\College\Java\Assessment-1`):
 
 ### Task 01: Problem Analysis & Object Modeling
 ```powershell
-Set-Location -Path "Task01"
-javac -encoding UTF-8 -Xlint:all Task01_ModelAnalysis.java
-java Task01_ModelAnalysis
+javac -encoding UTF-8 -Xlint:all TASKS/Task01/Task01_ModelAnalysis.java
+java -cp TASKS/Task01 Task01_ModelAnalysis
 ```
 
-### Task 02: Data Representation & Casting Risks
+### Task 02: Data Representation & Casting Analysis
 ```powershell
-Set-Location -Path "Task02"
-javac -encoding UTF-8 -Xlint:all DataRepresentationDemo.java
-java DataRepresentationDemo
+javac -encoding UTF-8 -Xlint:all TASKS/Task02/DataRepresentationDemo.java
+java -cp TASKS/Task02 DataRepresentationDemo
 ```
 
-### Task 03: Control Logic (ParkingFacility Complete the Code)
+### Task 03: Control Logic (ParkingFacility)
 ```powershell
-Set-Location -Path "Task03"
-javac -encoding UTF-8 -Xlint:all ParkingFacility.java
-java ParkingFacility
+javac -encoding UTF-8 -Xlint:all TASKS/Task03/ParkingFacility.java
+java -cp TASKS/Task03 ParkingFacility
 ```
 
-### Task 04: Classes, Objects & Constructors
+### Task 04: Classes, Objects & Constructor Chaining
 ```powershell
-Set-Location -Path "Task04"
-javac -encoding UTF-8 -Xlint:all ConstructorDemo.java
-java ConstructorDemo
+javac -encoding UTF-8 -Xlint:all TASKS/Task04/ConstructorDemo.java
+java -cp TASKS/Task04 ConstructorDemo
 ```
 
 ### Task 05: Static Members & Object Lifecycle
 ```powershell
-Set-Location -Path "Task05"
-javac -encoding UTF-8 -Xlint:all TicketLifecycleDemo.java
-java TicketLifecycleDemo
+javac -encoding UTF-8 -Xlint:all TASKS/Task05/TicketLifecycleDemo.java
+java -cp TASKS/Task05 TicketLifecycleDemo
 ```
 
-### Task 06: Inheritance Hierarchy
+### Task 06: Inheritance Hierarchy & Constructor Trace
 ```powershell
-Set-Location -Path "Task06"
-javac -encoding UTF-8 -Xlint:all VehicleHierarchyDemo.java
-java VehicleHierarchyDemo
+javac -encoding UTF-8 -Xlint:all TASKS/Task06/VehicleHierarchyDemo.java
+java -cp TASKS/Task06 VehicleHierarchyDemo
 ```
 
-### Task 07: Method Overriding & Object Equality
+### Task 07: Method Overriding & Object Contracts
 ```powershell
-Set-Location -Path "Task07"
-javac -encoding UTF-8 -Xlint:all VehicleOverrideDemo.java
-java VehicleOverrideDemo
+javac -encoding UTF-8 -Xlint:all TASKS/Task07/VehicleOverrideDemo.java
+java -cp TASKS/Task07 VehicleOverrideDemo
 ```
 
-### Task 08: Polymorphism & Dynamic Dispatch (FeeDemo Complete the Code)
+### Task 08: Polymorphism & Dynamic Dispatch (FeeDemo)
 ```powershell
-Set-Location -Path "Task08"
-javac -encoding UTF-8 -Xlint:all FeeDemo.java
-java FeeDemo
+javac -encoding UTF-8 -Xlint:all TASKS/Task08/FeeDemo.java
+java -cp TASKS/Task08 FeeDemo
 ```
 
 ### Task 09: Abstraction & Multiple Interfaces
 ```powershell
-Set-Location -Path "Task09"
-javac -encoding UTF-8 -Xlint:all AbstractionDemo.java
-java AbstractionDemo
+javac -encoding UTF-8 -Xlint:all TASKS/Task09/AbstractionDemo.java
+java -cp TASKS/Task09 AbstractionDemo
 ```
 
-### Task 10: Encapsulation & Modular Packages
+### Task 10: Package Encapsulation & Access Modifiers
 ```powershell
-Set-Location -Path "Task10"
-if (Test-Path bin) { Remove-Item -Recurse -Force bin }
-New-Item -ItemType Directory -Path bin -Force | Out-Null
-javac -encoding UTF-8 -d bin (Get-ChildItem -Path src -Recurse -Filter "*.java" | ForEach-Object { $_.FullName })
-java -cp bin parking.app.MainApp
+javac -encoding UTF-8 -d TASKS/Task10/bin (Get-ChildItem -Path TASKS/Task10/src -Recurse -Filter "*.java" | ForEach-Object { $_.FullName })
+java -cp TASKS/Task10/bin parking.app.MainApp
 ```
 
-### Task 11: Integrated System Verification Suite
+### Task 11: End-to-End System Integration Suite
 ```powershell
-Set-Location -Path "Task11"
-javac -encoding UTF-8 -Xlint:all SmartParkingSystem.java
-java SmartParkingSystem
+javac -encoding UTF-8 -Xlint:all TASKS/Task11/SmartParkingSystem.java
+java -cp TASKS/Task11 SmartParkingSystem
 ```
 
 ### Task 12: Day-4 Design Challenge (Adapted System)
 ```powershell
-Set-Location -Path "Task12"
-javac -encoding UTF-8 -Xlint:all AdaptedSmartParkingSystem.java
-java AdaptedSmartParkingSystem
+javac -encoding UTF-8 -Xlint:all TASKS/Task12/AdaptedSmartParkingSystem.java
+java -cp TASKS/Task12 AdaptedSmartParkingSystem
 ```
 
 ---
 
-## Task Results Summary
+## Deliverables & Evidence Location
 
-| Task | Marks | Objective & Key Result | Verification Status |
-| :--- | :---: | :--- | :---: |
-| **Task 01** | 4 | Identified candidate classes (`Vehicle`, `ParkingSpot`, `ParkingTicket`, `ParkingFacility`). Validated single occupancy and double-booking rejection. Compared object models with parallel arrays. | **Passed (Exit Code 0)** |
-| **Task 02** | 3 | Demonstrated integer truncation bug (`59 / 60 = 0` hrs $\rightarrow$ Rs 0.0) vs safe ceiling `(59 + 59) / 60 = 1` hr ($\rightarrow$ Rs 30.0). Validated jagged arrays for variable floor sizes. | **Passed (Exit Code 0)** |
-| **Task 03** | 4 | Completed `ParkingFacility.java` `allocate()` and `release()` methods. Character-for-character matched expected output: `[0, 0]`, `[0, 1]`, `[1, 0]`, `null`, `true false false`, `[0, 1]`. | **Passed (Exit Code 0)** |
-| **Task 04** | 4 | Designed constructors with `this(...)` chaining. Implemented copy constructor for re-issuing duplicate tickets without altering original entry timestamp. | **Passed (Exit Code 0)** |
-| **Task 05** | 3 | Implemented static monotonically increasing ticket ID generator (`TKT-0001`...) and active facility occupancy tracking. Demonstrated GC eligibility upon checkout. | **Passed (Exit Code 0)** |
-| **Task 06** | 4 | Built hierarchical and multilevel inheritance tree (`Vehicle` $\rightarrow$ `Car` $\rightarrow$ `ElectricCar`). Traced constructor order: `Object` $\rightarrow$ `Vehicle` $\rightarrow$ `Car` $\rightarrow$ `ElectricCar`. | **Passed (Exit Code 0)** |
-| **Task 07** | 4 | Overrode `ratePerHour()`, `toString()`, `equals()`, and `hashCode()`. Validated license-plate equality and `HashSet` duplicate prevention. | **Passed (Exit Code 0)** |
-| **Task 08** | 4 | Completed `FeeDemo.java` with ceiling integer arithmetic and dynamic method dispatch. Matched expected output: `TwoWheeler -> Rs 30.0`, `Car -> Rs 90.0`, `ElectricCar -> Rs 210.0`, `true`. | **Passed (Exit Code 0)** |
-| **Task 09** | 4 | Introduced `Chargeable` and `Payable` interfaces alongside abstract `Vehicle`. Implemented default interface surcharge method and static duration validators. | **Passed (Exit Code 0)** |
-| **Task 10** | 3 | Structured modular packages (`parking.model`, `parking.service`, `parking.app`). Validated defensive mutators against negative inputs and demonstrated Java's autoboxing Integer cache trap. | **Passed (Exit Code 0)** |
-| **Task 11** | 5 | Built end-to-end integrated system. Tested nominal, boundary (last slot, zero-minute parking = Rs 0.0, slab boundaries 60m vs 61m), and invalid cases. Hand-calculated benchmark revenue of Rs 230.0 matched program output 100%. | **Passed (Exit Code 0)** |
-| **Task 12** | 8 | Day-4 Design Challenge: Decoupled pricing using Strategy Pattern (`PricingStrategy`). Verified E-Bike flat fee (Rs 15.0), Delivery Van 9 AM–5 PM surge rate (Rs 120 vs Rs 60 off-peak), 24-hr One-Day Pass (Rs 100), and 5-floor non-uniform slot capacity. | **Passed (Exit Code 0)** |
-
----
-
-## Git Commit History Summary
-
-This repository follows atomic conventional commits tracking progressive implementation:
-
-```
-fd7ba04 chore: initialize repository and workspace directory structure
-e98fff4 feat(task01): implement problem analysis and domain object models
-1a98483 feat(task02): implement data representation and casting risk demo
-473dd81 feat(task03): complete ParkingFacility allocation and release logic
-11d5d5d feat(task04): implement classes, constructors and chaining
-05be3ac feat(task05): apply static members and lifecycle tracking
-eea801b feat(task06): design inheritance hierarchy and constructor trace
-8ea0049 feat(task07): implement method overriding and Object methods
-8669130 feat(task08): complete FeeDemo with dynamic method dispatch
-ae80013 feat(task09): implement abstraction with Vehicle and Chargeable
-b2f8356 feat(task10): enforce encapsulation with modular packages
-3f54c61 feat(task11): implement complete Smart-Parking System integration
-c055845 feat(task12): implement Day-4 adapted design challenge
-58551c1 docs(diagrams): add UML class diagrams and architecture charts
-1599b38 docs(report): compile comprehensive 50-mark academic report
-```
+- **Authoritative PDF Report**: [`report/SIMATS_Java_Assignment_1_Report.pdf`](report/SIMATS_Java_Assignment_1_Report.pdf) (2.25 MB, formatted to academic standard, verified below the 10 MB portal threshold).
+- **Authoritative Editable Report**: [`report/SIMATS_Java_Assignment_1_Report.docx`](report/SIMATS_Java_Assignment_1_Report.docx) (4.19 MB).
+- **Report Markdown Source**: [`report/SIMATS_Java_Assignment_1_Report.md`](report/SIMATS_Java_Assignment_1_Report.md).
+- **Figma UML & Architecture Diagrams**: Located in [`diagrams/`](diagrams/) as dual SVG vectors and 300 DPI PNGs.
+- **Genuine Execution Screenshots**: Located in `TASKS/TaskXX/evidence/screenshot_TaskXX.png` for all 12 tasks.
+- **Console Output Transcripts**: Located in `TASKS/TaskXX/evidence/terminal_output.txt` for all 12 tasks.
