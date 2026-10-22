@@ -2,10 +2,16 @@
 *.class
 bin/
 */bin/
+TASKS/*/bin/
 
-# Compile logs
+# Compile logs & temporary files
+*.tmp
+report/*.docx.tmp
 compile_error.log
-evidence/*/compile_error.log
+TASKS/*/evidence/compile_error.log
+
+# Reference assignment brief (preserved locally, excluded from submission)
+SIMATS_Java_Assignment_1.pdf
 
 # OS & IDE metadata
 .DS_Store

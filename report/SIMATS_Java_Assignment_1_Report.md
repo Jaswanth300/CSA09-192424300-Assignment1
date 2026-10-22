@@ -1,5 +1,5 @@
 # SIMATS Online Programming Lab — Assignment Report
-## Programming in Java (CO1: Fundamentals & Object-Oriented Programming)
+## Programming in Java (CSA0921)
 ### Assignment Title: Design, Implement and Validate an Object-Oriented Model for a Campus Smart-Parking System
 **Total Marks: 50 Marks**
 
@@ -7,13 +7,12 @@
 
 ### Student & Submission Metadata
 - **Student Name**: Bala Naga Jaswanth
-- **Register Number**: 192424300
-- **Course**: Java Programming (CO1)
-- **Nature of Assignment**: Individual
+- **Registration Number**: 192424300
+- **Course / Subject**: Java Programming
+- **Course Code**: `CSA0921`
 - **Submission Repository**: `CSA09-192424300-Assignment1`
 - **GitHub Repository Link**: `https://github.com/Jaswanth300/CSA09-192424300-Assignment1`
-- **JDK Version**: OpenJDK 21 LTS (`21.0.12.1`)
-- **Shell Environment**: Windows PowerShell 5.1
+- **Target Java Version**: OpenJDK 21 LTS
 
 ---
 
@@ -39,7 +38,7 @@ This report documents the architectural design, implementation, and empirical va
 | **Task 10** | Enforce Encapsulation through Modular Packages | K4 – Analyse | 3 | Complete & Verified |
 | **Task 11** | End-to-End System Integration, Testing & Defence | K5 – Evaluate | 5 | Complete & Verified |
 | **Task 12** | Day-4 Design Challenge (E-Bikes, Vans, 24-hr Pass, 5 Floors) | K5 – Evaluate | 8 | Complete & Verified |
-| **TOTAL** | **Consolidated Assignment Total** | | **50** | **100% Completed** |
+| **TOTAL** | **Consolidated Assignment Total** | | **50** | **Completed & Verified** |
 
 ---
 
@@ -80,8 +79,8 @@ This report documents the architectural design, implementation, and empirical va
   - Integrity: Extreme desynchronization risk when sorting, swapping, or deleting records.
 
 #### 6. Test Evidence & Results
-- Source: [`Task01/Task01_ModelAnalysis.java`](../Task01/Task01_ModelAnalysis.java)
-- Output Log: [`evidence/Task01/terminal_output.txt`](../evidence/Task01/terminal_output.txt)
+- Source: [`TASKS/Task01/Task01_ModelAnalysis.java`](../TASKS/Task01/Task01_ModelAnalysis.java)
+- Output Log: [`TASKS/Task01/evidence/terminal_output.txt`](../TASKS/Task01/evidence/terminal_output.txt)
 
 | Test ID | Scenario | Input | Expected Output | Actual Output | Status |
 | :--- | :--- | :--- | :--- | :--- | :---: |
@@ -114,8 +113,8 @@ When calculating fees from minutes, naive integer division `minutes / 60` drops 
 - **Flat 1D Array (`index = floor * slotsPerFloor + slot`)**: Requires uniform rectangular dimensions. If floors have different capacities, flat indexing breaks or requires wasting slots allocated to the maximum floor size.
 
 #### 4. Test Evidence & Results
-- Source: [`Task02/DataRepresentationDemo.java`](../Task02/DataRepresentationDemo.java)
-- Output Log: [`evidence/Task02/terminal_output.txt`](../evidence/Task02/terminal_output.txt)
+- Source: [`TASKS/Task02/DataRepresentationDemo.java`](../TASKS/Task02/DataRepresentationDemo.java)
+- Output Log: [`TASKS/Task02/evidence/terminal_output.txt`](../TASKS/Task02/evidence/terminal_output.txt)
 
 | Test ID | Scenario | Input | Expected Output | Actual Output | Status |
 | :--- | :--- | :--- | :--- | :--- | :---: |
@@ -168,8 +167,8 @@ END
 ```
 
 #### 2. Implementation & Exact Output Verification
-- Source: [`Task03/ParkingFacility.java`](../Task03/ParkingFacility.java)
-- Output Log: [`evidence/Task03/terminal_output.txt`](../evidence/Task03/terminal_output.txt)
+- Source: [`TASKS/Task03/ParkingFacility.java`](../TASKS/Task03/ParkingFacility.java)
+- Output Log: [`TASKS/Task03/evidence/terminal_output.txt`](../TASKS/Task03/evidence/terminal_output.txt)
 
 **Expected Output vs Actual Output**:
 ```
@@ -200,8 +199,8 @@ true false false
 - **Heap**: Stores actual object payloads (`ParkingTicket` instances, strings, backing arrays).
 
 #### 3. Test Evidence & Results
-- Source: [`Task04/ConstructorDemo.java`](../Task04/ConstructorDemo.java)
-- Output Log: [`evidence/Task04/terminal_output.txt`](../evidence/Task04/terminal_output.txt)
+- Source: [`TASKS/Task04/ConstructorDemo.java`](../TASKS/Task04/ConstructorDemo.java)
+- Output Log: [`TASKS/Task04/evidence/terminal_output.txt`](../TASKS/Task04/evidence/terminal_output.txt)
 
 | Test ID | Scenario | Constructor Used | Expected State | Actual Result | Status |
 | :--- | :--- | :--- | :--- | :--- | :---: |
@@ -224,8 +223,8 @@ true false false
 - Unreachable object becomes immediately eligible for Garbage Collection (GC).
 
 #### 3. Test Evidence & Results
-- Source: [`Task05/TicketLifecycleDemo.java`](../Task05/TicketLifecycleDemo.java)
-- Output Log: [`evidence/Task05/terminal_output.txt`](../evidence/Task05/terminal_output.txt)
+- Source: [`TASKS/Task05/TicketLifecycleDemo.java`](../TASKS/Task05/TicketLifecycleDemo.java)
+- Output Log: [`TASKS/Task05/evidence/terminal_output.txt`](../TASKS/Task05/evidence/terminal_output.txt)
 
 | Test ID | Scenario | Action | Expected Output | Actual Output | Status |
 | :--- | :--- | :--- | :--- | :--- | :---: |
@@ -251,8 +250,8 @@ When instantiating `new ElectricCar("TN03EV9999", 40.0)`:
 4. `ElectricCar` constructor body completes.
 
 #### 3. Test Evidence & Results
-- Source: [`Task06/VehicleHierarchyDemo.java`](../Task06/VehicleHierarchyDemo.java)
-- Output Log: [`evidence/Task06/terminal_output.txt`](../evidence/Task06/terminal_output.txt)
+- Source: [`TASKS/Task06/VehicleHierarchyDemo.java`](../TASKS/Task06/VehicleHierarchyDemo.java)
+- Output Log: [`TASKS/Task06/evidence/terminal_output.txt`](../TASKS/Task06/evidence/terminal_output.txt)
 
 | Test ID | Vehicle Type | Hierarchy Type | Rate Verified | Constructor Trace | Status |
 | :--- | :--- | :--- | :--- | :--- | :---: |
@@ -270,8 +269,8 @@ When instantiating `new ElectricCar("TN03EV9999", 40.0)`:
 - Applied `final` keyword to `regNo` to guarantee immutability.
 
 #### 2. Test Evidence & Results
-- Source: [`Task07/VehicleOverrideDemo.java`](../Task07/VehicleOverrideDemo.java)
-- Output Log: [`evidence/Task07/terminal_output.txt`](../evidence/Task07/terminal_output.txt)
+- Source: [`TASKS/Task07/VehicleOverrideDemo.java`](../TASKS/Task07/VehicleOverrideDemo.java)
+- Output Log: [`TASKS/Task07/evidence/terminal_output.txt`](../TASKS/Task07/evidence/terminal_output.txt)
 
 | Test ID | Test Case | Method | Expected Output | Actual Output | Status |
 | :--- | :--- | :--- | :--- | :--- | :---: |
@@ -285,8 +284,8 @@ When instantiating `new ElectricCar("TN03EV9999", 40.0)`:
 **Marks**: 4 Marks | **Bloom’s Level**: K4 – Analyse
 
 #### 1. Implementation & Output Verification
-- Source: [`Task08/FeeDemo.java`](../Task08/FeeDemo.java)
-- Output Log: [`evidence/Task08/terminal_output.txt`](../evidence/Task08/terminal_output.txt)
+- Source: [`TASKS/Task08/FeeDemo.java`](../TASKS/Task08/FeeDemo.java)
+- Output Log: [`TASKS/Task08/evidence/terminal_output.txt`](../TASKS/Task08/evidence/terminal_output.txt)
 
 **Expected Output vs Actual Output**:
 ```
@@ -314,8 +313,8 @@ The last line `new Car("TN02B2").equals(new ElectricCar("TN02B2"))` prints `true
 - **Default & Static Methods**: `getEmergencySurcharge()` implemented as a default method; `isValidChargingDuration()` implemented as a static utility method on the interface.
 
 #### 2. Test Evidence & Results
-- Source: [`Task09/AbstractionDemo.java`](../Task09/AbstractionDemo.java)
-- Output Log: [`evidence/Task09/terminal_output.txt`](../evidence/Task09/terminal_output.txt)
+- Source: [`TASKS/Task09/AbstractionDemo.java`](../TASKS/Task09/AbstractionDemo.java)
+- Output Log: [`TASKS/Task09/evidence/terminal_output.txt`](../TASKS/Task09/evidence/terminal_output.txt)
 
 | Test ID | Capability | Implementation | Value | Status |
 | :--- | :--- | :--- | :--- | :---: |
@@ -342,8 +341,8 @@ The last line `new Car("TN02B2").equals(new ElectricCar("TN02B2"))` prints `true
   - `nonCachedA.equals(nonCachedB)`: correctly evaluates to `true` using value comparison.
 
 #### 3. Test Evidence & Results
-- Source: [`Task10/src/parking/app/MainApp.java`](../Task10/src/parking/app/MainApp.java)
-- Output Log: [`evidence/Task10/terminal_output.txt`](../evidence/Task10/terminal_output.txt)
+- Source: [`TASKS/Task10/src/parking/app/MainApp.java`](../TASKS/Task10/src/parking/app/MainApp.java)
+- Output Log: [`TASKS/Task10/evidence/terminal_output.txt`](../TASKS/Task10/evidence/terminal_output.txt)
 
 | Test ID | Scenario | Input | Expected Output | Status |
 | :--- | :--- | :--- | :--- | :---: |
@@ -368,11 +367,11 @@ Implemented an integrated parking facility covering normal operations, edge boun
 - **Vehicle 4**: Car (Student Monthly Pass), 180 mins $\rightarrow \text{Rs } 0.0$ (Free).
 - **Vehicle 5**: Car (Visitor), 0 mins $\rightarrow \text{Rs } 0.0$.
 - **Hand-Calculated Total**: $60.0 + 20.0 + 150.0 + 0.0 + 0.0 = \textbf{Rs 230.0}$.
-- **Actual Program Output**: **Rs 230.0** (100% Exact Match).
+- **Actual Program Output**: **Rs 230.0** (Exact Match).
 
 #### 3. Test Evidence & Results
-- Source: [`Task11/SmartParkingSystem.java`](../Task11/SmartParkingSystem.java)
-- Output Log: [`evidence/Task11/terminal_output.txt`](../evidence/Task11/terminal_output.txt)
+- Source: [`TASKS/Task11/SmartParkingSystem.java`](../TASKS/Task11/SmartParkingSystem.java)
+- Output Log: [`TASKS/Task11/evidence/terminal_output.txt`](../TASKS/Task11/evidence/terminal_output.txt)
 
 ---
 
@@ -410,8 +409,8 @@ Implemented an integrated parking facility covering normal operations, edge boun
   3. One-Day Pass: Pass cost = Rs 100.0; 1st exit (180 mins) = Rs 0.0; 2nd exit (240 mins) = Rs 0.0.
   4. 5-Floor Allocation: Verified seamless spot allocation across non-uniform floors without index exceptions.
 
-- Source: [`Task12/AdaptedSmartParkingSystem.java`](../Task12/AdaptedSmartParkingSystem.java)
-- Output Log: [`evidence/Task12/terminal_output.txt`](../evidence/Task12/terminal_output.txt)
+- Source: [`TASKS/Task12/AdaptedSmartParkingSystem.java`](../TASKS/Task12/AdaptedSmartParkingSystem.java)
+- Output Log: [`TASKS/Task12/evidence/terminal_output.txt`](../TASKS/Task12/evidence/terminal_output.txt)
 
 ---
 
