@@ -1,0 +1,153 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 640" width="940" height="640">
+
+  <defs>
+    <style>
+      .canvas-title { font-family: 'Segoe UI', Inter, -apple-system, sans-serif; font-size: 22px; font-weight: 700; fill: #0F172A; }
+      .canvas-subtitle { font-family: 'Segoe UI', Inter, -apple-system, sans-serif; font-size: 13.5px; font-weight: 400; fill: #475569; }
+      .cls-header-text { font-family: 'Segoe UI', Inter, -apple-system, sans-serif; font-size: 16px; font-weight: 700; fill: #FFFFFF; }
+      .cls-meta-text { font-family: 'Segoe UI', Inter, -apple-system, sans-serif; font-size: 12px; font-style: italic; fill: #E2E8F0; }
+      .code-member { font-family: 'Consolas', 'Courier New', monospace; font-size: 13.5px; fill: #0F172A; }
+      .code-comment { font-family: 'Segoe UI', Inter, sans-serif; font-size: 11.5px; font-style: italic; fill: #0284C7; }
+      .card-title { font-family: 'Segoe UI', Inter, -apple-system, sans-serif; font-size: 13px; font-weight: 700; fill: #92400E; }
+      .card-body { font-family: 'Segoe UI', Inter, -apple-system, sans-serif; font-size: 12.5px; fill: #78350F; line-height: 1.5; }
+      .mult-label { font-family: 'Consolas', monospace; font-size: 13px; font-weight: 700; fill: #1E3A8A; }
+      .conn-text { font-family: 'Segoe UI', Inter, sans-serif; font-size: 12px; font-weight: 600; fill: #334155; }
+      .seq-head { font-family: 'Segoe UI', Inter, sans-serif; font-size: 14.5px; font-weight: 700; fill: #FFFFFF; }
+      .seq-call-text { font-family: 'Consolas', monospace; font-size: 12.5px; font-weight: 600; fill: #0F172A; }
+      .seq-ret-text { font-family: 'Consolas', monospace; font-size: 12.5px; font-weight: 600; fill: #2563EB; }
+    </style>
+    <filter id="soft-shadow" x="-4%" y="-4%" width="108%" height="112%" filterUnits="objectBoundingBox">
+      <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#0F172A" flood-opacity="0.06"/>
+    </filter>
+    <!-- Generalization Arrow (Closed triangle, white fill, navy stroke) -->
+    <marker id="generalization" viewBox="0 0 20 20" refX="20" refY="10" markerWidth="14" markerHeight="14" orient="auto-start-reverse">
+      <polygon points="0,0 20,10 0,20" fill="#FFFFFF" stroke="#1E3A8A" stroke-width="2" stroke-linejoin="round"/>
+    </marker>
+    <!-- Realization Arrow (Closed triangle, white fill, indigo stroke) -->
+    <marker id="realization" viewBox="0 0 20 20" refX="20" refY="10" markerWidth="14" markerHeight="14" orient="auto-start-reverse">
+      <polygon points="0,0 20,10 0,20" fill="#FFFFFF" stroke="#4338CA" stroke-width="2" stroke-linejoin="round"/>
+    </marker>
+    <!-- Directed Association Arrow -->
+    <marker id="assoc-arrow" viewBox="0 0 16 16" refX="16" refY="8" markerWidth="10" markerHeight="10" orient="auto-start-reverse">
+      <polyline points="2,2 14,8 2,14" fill="none" stroke="#1E293B" stroke-width="2" stroke-linecap="round"/>
+    </marker>
+    <!-- Dependency Open Arrow -->
+    <marker id="dep-arrow" viewBox="0 0 16 16" refX="16" refY="8" markerWidth="10" markerHeight="10" orient="auto-start-reverse">
+      <polyline points="2,2 14,8 2,14" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round"/>
+    </marker>
+    <!-- Aggregation Diamond (Open diamond, white fill) -->
+    <marker id="aggregation" viewBox="0 0 24 16" refX="24" refY="8" markerWidth="16" markerHeight="12" orient="auto-start-reverse">
+      <polygon points="0,8 12,0 24,8 12,16" fill="#FFFFFF" stroke="#1E3A8A" stroke-width="2"/>
+    </marker>
+    <!-- Sequence Synchronous Call (Solid arrow) -->
+    <marker id="seq-call" viewBox="0 0 16 16" refX="16" refY="8" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
+      <polygon points="0,2 14,8 0,14" fill="#0F172A"/>
+    </marker>
+    <!-- Sequence Return Message (Dashed open arrow) -->
+    <marker id="seq-ret" viewBox="0 0 16 16" refX="16" refY="8" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
+      <polyline points="0,2 14,8 0,14" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round"/>
+    </marker>
+  </defs>
+
+  <!-- Canvas Background -->
+  <rect width="100%" height="100%" fill="#F8FAFC" rx="14"/>
+  <rect x="1" y="1" width="938" height="638" fill="none" stroke="#E2E8F0" stroke-width="1.5" rx="13"/>
+
+  <!-- Canvas Header -->
+  <text x="35" y="42" class="canvas-title">Task 11: Vehicle Check-In Sequence Diagram</text>
+  <text x="35" y="64" class="canvas-subtitle">Formal UML 2.5 Dynamic Interaction Trace | Slot Allocation, Duplicate Check &amp; Ticket Creation</text>
+  <line x1="35" y1="76" x2="905" y2="76" stroke="#E2E8F0" stroke-width="1.5"/>
+
+  <!-- Lifeline 1: Driver / MainApp -->
+  <g transform="translate(130, 95)">
+    <rect x="-70" y="0" width="140" height="38" rx="6" fill="#1E293B" stroke="#0F172A" stroke-width="1.5" filter="url(#soft-shadow)"/>
+    <text x="0" y="24" text-anchor="middle" class="seq-head">:Driver / MainApp</text>
+    <line x1="0" y1="38" x2="0" y2="520" stroke="#94A3B8" stroke-width="1.5" stroke-dasharray="5,4"/>
+    <rect x="-7" y="60" width="14" height="430" fill="#E2E8F0" stroke="#64748B" stroke-width="1.2"/>
+  </g>
+
+  <!-- Lifeline 2: ParkingFacility -->
+  <g transform="translate(470, 95)">
+    <rect x="-85" y="0" width="170" height="38" rx="6" fill="#1E3A8A" stroke="#1E40AF" stroke-width="1.5" filter="url(#soft-shadow)"/>
+    <text x="0" y="24" text-anchor="middle" class="seq-head">facility:ParkingFacility</text>
+    <line x1="0" y1="38" x2="0" y2="520" stroke="#94A3B8" stroke-width="1.5" stroke-dasharray="5,4"/>
+    <rect x="-7" y="60" width="14" height="410" fill="#DBEAFE" stroke="#2563EB" stroke-width="1.2"/>
+  </g>
+
+  <!-- Lifeline 3: ParkingTicket -->
+  <g transform="translate(790, 95)">
+    <rect x="-70" y="0" width="140" height="38" rx="6" fill="#475569" stroke="#334155" stroke-width="1.5" filter="url(#soft-shadow)"/>
+    <text x="0" y="24" text-anchor="middle" class="seq-head">t:ParkingTicket</text>
+    <line x1="0" y1="38" x2="0" y2="520" stroke="#94A3B8" stroke-width="1.5" stroke-dasharray="5,4"/>
+    <rect x="-7" y="335" width="14" height="70" fill="#F1F5F9" stroke="#64748B" stroke-width="1.2"/>
+  </g>
+
+  <!-- Step 1: checkIn(v, time) -->
+  <g transform="translate(137, 165)">
+    <line x1="0" y1="0" x2="326" y2="0" stroke="#0F172A" stroke-width="1.8" marker-end="url(#seq-call)"/>
+    <text x="155" y="-10" text-anchor="middle" class="seq-call-text">1: checkIn(v: Vehicle, time: int)</text>
+  </g>
+
+  <!-- Step 2: Loop check duplicates -->
+  <g transform="translate(477, 195)">
+    <path d="M 0,0 L 35,0 L 35,24 L 0,24" fill="none" stroke="#0F172A" stroke-width="1.5" marker-end="url(#seq-call)"/>
+    <text x="45" y="16" class="seq-call-text">2: for (t : tickets) check equals(v)</text>
+  </g>
+
+  <!-- Guard 1: Duplicate Found -->
+  <g transform="translate(200, 240)">
+    <rect width="540" height="32" rx="4" fill="#FEF2F2" stroke="#FCA5A5" stroke-width="1" stroke-dasharray="4,3"/>
+    <text x="12" y="20" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="bold" fill="#991B1B">[opt: Duplicate Found] return null (Reject double booking)</text>
+  </g>
+
+  <!-- Step 3: Scan 2D Matrix -->
+  <g transform="translate(477, 285)">
+    <path d="M 0,0 L 35,0 L 35,24 L 0,24" fill="none" stroke="#0F172A" stroke-width="1.5" marker-end="url(#seq-call)"/>
+    <text x="45" y="16" class="seq-call-text">3: scan occupied[f][s] == false</text>
+  </g>
+
+  <!-- Guard 2: Full Facility -->
+  <g transform="translate(200, 325)">
+    <rect width="540" height="32" rx="4" fill="#FEF2F2" stroke="#FCA5A5" stroke-width="1" stroke-dasharray="4,3"/>
+    <text x="12" y="20" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="bold" fill="#991B1B">[opt: No Free Slot] return null (Facility full)</text>
+  </g>
+
+  <!-- Step 4: Mark Occupied -->
+  <g transform="translate(477, 370)">
+    <path d="M 0,0 L 35,0 L 35,20 L 0,20" fill="none" stroke="#0F172A" stroke-width="1.5" marker-end="url(#seq-call)"/>
+    <text x="45" y="15" class="seq-call-text">4: occupied[f][s] = true</text>
+  </g>
+
+  <!-- Step 5: Create Ticket -->
+  <g transform="translate(477, 430)">
+    <line x1="0" y1="0" x2="306" y2="0" stroke="#0F172A" stroke-width="1.8" marker-end="url(#seq-call)"/>
+    <text x="150" y="-10" text-anchor="middle" class="seq-call-text">5: &lt;&lt;create&gt;&gt; new ParkingTicket(v, time, f, s)</text>
+  </g>
+
+  <!-- Step 6: Return Ticket Instance -->
+  <g transform="translate(477, 465)">
+    <line x1="306" y1="0" x2="0" y2="0" stroke="#2563EB" stroke-width="1.8" stroke-dasharray="5,4" marker-end="url(#seq-ret)"/>
+    <text x="150" y="-10" text-anchor="middle" class="seq-ret-text">6: ticket instance</text>
+  </g>
+
+  <!-- Step 7: Add to Collection -->
+  <g transform="translate(477, 490)">
+    <path d="M 0,0 L 35,0 L 35,20 L 0,20" fill="none" stroke="#0F172A" stroke-width="1.5" marker-end="url(#seq-call)"/>
+    <text x="45" y="15" class="seq-call-text">7: tickets.add(t)</text>
+  </g>
+
+  <!-- Step 8: Return Ticket to Driver -->
+  <g transform="translate(137, 535)">
+    <line x1="326" y1="0" x2="0" y2="0" stroke="#2563EB" stroke-width="2" stroke-dasharray="5,4" marker-end="url(#seq-ret)"/>
+    <text x="160" y="-10" text-anchor="middle" class="seq-ret-text">8: return t (allocation success)</text>
+  </g>
+
+  <!-- Footer Verification Note -->
+  <g transform="translate(130, 565)">
+    <rect width="730" height="60" rx="6" fill="#F0FDF4" stroke="#86EFAC" stroke-width="1.2"/>
+    <rect width="5" height="60" rx="2" fill="#10B981"/>
+    <text x="16" y="20" font-family="'Segoe UI', sans-serif" font-size="11.5" font-weight="bold" fill="#065F46">DYNAMIC BEHAVIOR &amp; ERROR PATH VERIFICATION (Task 11)</text>
+    <text x="16" y="38" font-family="'Segoe UI', sans-serif" font-size="11" fill="#1E293B">&#x2022; Duplicate Prevention: Re-checkIn with same plate aborts at step 2 returning null.</text>
+    <text x="16" y="52" font-family="'Segoe UI', sans-serif" font-size="11" fill="#1E293B">&#x2022; Capacity Invariant: When 2D matrix is saturated, check-in returns null without ticket creation.</text>
+  </g>
+</svg>

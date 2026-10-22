@@ -1,0 +1,195 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1060 720" width="1060" height="720">
+
+  <defs>
+    <style>
+      .canvas-title { font-family: 'Segoe UI', Inter, -apple-system, sans-serif; font-size: 22px; font-weight: 700; fill: #0F172A; }
+      .canvas-subtitle { font-family: 'Segoe UI', Inter, -apple-system, sans-serif; font-size: 13.5px; font-weight: 400; fill: #475569; }
+      .cls-header-text { font-family: 'Segoe UI', Inter, -apple-system, sans-serif; font-size: 16px; font-weight: 700; fill: #FFFFFF; }
+      .cls-meta-text { font-family: 'Segoe UI', Inter, -apple-system, sans-serif; font-size: 12px; font-style: italic; fill: #E2E8F0; }
+      .code-member { font-family: 'Consolas', 'Courier New', monospace; font-size: 13.5px; fill: #0F172A; }
+      .code-comment { font-family: 'Segoe UI', Inter, sans-serif; font-size: 11.5px; font-style: italic; fill: #0284C7; }
+      .card-title { font-family: 'Segoe UI', Inter, -apple-system, sans-serif; font-size: 13px; font-weight: 700; fill: #92400E; }
+      .card-body { font-family: 'Segoe UI', Inter, -apple-system, sans-serif; font-size: 12.5px; fill: #78350F; line-height: 1.5; }
+      .mult-label { font-family: 'Consolas', monospace; font-size: 13px; font-weight: 700; fill: #1E3A8A; }
+      .conn-text { font-family: 'Segoe UI', Inter, sans-serif; font-size: 12px; font-weight: 600; fill: #334155; }
+      .seq-head { font-family: 'Segoe UI', Inter, sans-serif; font-size: 14.5px; font-weight: 700; fill: #FFFFFF; }
+      .seq-call-text { font-family: 'Consolas', monospace; font-size: 12.5px; font-weight: 600; fill: #0F172A; }
+      .seq-ret-text { font-family: 'Consolas', monospace; font-size: 12.5px; font-weight: 600; fill: #2563EB; }
+    </style>
+    <filter id="soft-shadow" x="-4%" y="-4%" width="108%" height="112%" filterUnits="objectBoundingBox">
+      <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#0F172A" flood-opacity="0.06"/>
+    </filter>
+    <!-- Generalization Arrow (Closed triangle, white fill, navy stroke) -->
+    <marker id="generalization" viewBox="0 0 20 20" refX="20" refY="10" markerWidth="14" markerHeight="14" orient="auto-start-reverse">
+      <polygon points="0,0 20,10 0,20" fill="#FFFFFF" stroke="#1E3A8A" stroke-width="2" stroke-linejoin="round"/>
+    </marker>
+    <!-- Realization Arrow (Closed triangle, white fill, indigo stroke) -->
+    <marker id="realization" viewBox="0 0 20 20" refX="20" refY="10" markerWidth="14" markerHeight="14" orient="auto-start-reverse">
+      <polygon points="0,0 20,10 0,20" fill="#FFFFFF" stroke="#4338CA" stroke-width="2" stroke-linejoin="round"/>
+    </marker>
+    <!-- Directed Association Arrow -->
+    <marker id="assoc-arrow" viewBox="0 0 16 16" refX="16" refY="8" markerWidth="10" markerHeight="10" orient="auto-start-reverse">
+      <polyline points="2,2 14,8 2,14" fill="none" stroke="#1E293B" stroke-width="2" stroke-linecap="round"/>
+    </marker>
+    <!-- Dependency Open Arrow -->
+    <marker id="dep-arrow" viewBox="0 0 16 16" refX="16" refY="8" markerWidth="10" markerHeight="10" orient="auto-start-reverse">
+      <polyline points="2,2 14,8 2,14" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round"/>
+    </marker>
+    <!-- Aggregation Diamond (Open diamond, white fill) -->
+    <marker id="aggregation" viewBox="0 0 24 16" refX="24" refY="8" markerWidth="16" markerHeight="12" orient="auto-start-reverse">
+      <polygon points="0,8 12,0 24,8 12,16" fill="#FFFFFF" stroke="#1E3A8A" stroke-width="2"/>
+    </marker>
+    <!-- Sequence Synchronous Call (Solid arrow) -->
+    <marker id="seq-call" viewBox="0 0 16 16" refX="16" refY="8" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
+      <polygon points="0,2 14,8 0,14" fill="#0F172A"/>
+    </marker>
+    <!-- Sequence Return Message (Dashed open arrow) -->
+    <marker id="seq-ret" viewBox="0 0 16 16" refX="16" refY="8" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
+      <polyline points="0,2 14,8 0,14" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round"/>
+    </marker>
+  </defs>
+
+  <!-- Canvas Background -->
+  <rect width="100%" height="100%" fill="#F8FAFC" rx="14"/>
+  <rect x="1" y="1" width="1058" height="718" fill="none" stroke="#E2E8F0" stroke-width="1.5" rx="13"/>
+
+  <!-- Canvas Header -->
+  <text x="35" y="42" class="canvas-title">Task 11: Integrated Smart-Parking System Architecture</text>
+  <text x="35" y="64" class="canvas-subtitle">Full UML 2.5 Class Diagram | Vehicle Polymorphism, Ticket Tracking &amp; Facility Management</text>
+  <line x1="35" y1="76" x2="1025" y2="76" stroke="#E2E8F0" stroke-width="1.5"/>
+
+  <!-- Interface: Chargeable -->
+  <g transform="translate(40, 95)" filter="url(#soft-shadow)">
+    <rect width="240" height="110" rx="8" fill="#FFFFFF" stroke="#4338CA" stroke-width="1.5"/>
+    <path d="M 0,8 A 8,8 0 0,1 8,0 L 232,0 A 8,8 0 0,1 240,8 L 240,40 L 0,40 Z" fill="#4338CA"/>
+    <text x="120" y="18" text-anchor="middle" class="cls-meta-text">&lt;&lt;interface&gt;&gt;</text>
+    <text x="120" y="34" text-anchor="middle" class="cls-header-text">Chargeable</text>
+    <line x1="0" y1="40" x2="240" y2="40" stroke="#4338CA" stroke-width="1"/>
+    <text x="12" y="68" class="code-member">+ chargingFee(units: double):</text>
+    <text x="26" y="88" class="code-member">  double</text>
+  </g>
+
+  <!-- Abstract Class: Vehicle -->
+  <g transform="translate(320, 95)" filter="url(#soft-shadow)">
+    <rect width="310" height="235" rx="8" fill="#FFFFFF" stroke="#047857" stroke-width="1.5"/>
+    <path d="M 0,8 A 8,8 0 0,1 8,0 L 302,0 A 8,8 0 0,1 310,8 L 310,42 L 0,42 Z" fill="#047857"/>
+    <text x="155" y="18" text-anchor="middle" class="cls-meta-text">&lt;&lt;abstract superclass&gt;&gt;</text>
+    <text x="155" y="34" text-anchor="middle" class="cls-header-text">Vehicle</text>
+    <line x1="0" y1="42" x2="310" y2="42" stroke="#047857" stroke-width="1"/>
+    <!-- Attributes -->
+    <text x="14" y="66" class="code-member">~ regNo: String</text>
+    <text x="14" y="88" class="code-member">~ monthlyPass: boolean</text>
+    <line x1="0" y1="98" x2="310" y2="98" stroke="#F1F5F9" stroke-width="1.2"/>
+    <!-- Methods -->
+    <text x="14" y="120" class="code-member">~ Vehicle(regNo, pass)</text>
+    <text x="14" y="142" class="code-member">~ {abstract} ratePerHour(): double</text>
+    <text x="14" y="164" class="code-member">~ parkingFee(minutes: int): double</text>
+    <text x="14" y="186" class="code-member">+ equals(obj: Object): boolean</text>
+    <text x="14" y="208" class="code-member">+ hashCode(): int</text>
+  </g>
+
+  <!-- Subclass: TwoWheeler -->
+  <g transform="translate(320, 375)" filter="url(#soft-shadow)">
+    <rect width="195" height="105" rx="8" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5"/>
+    <path d="M 0,8 A 8,8 0 0,1 8,0 L 187,0 A 8,8 0 0,1 195,8 L 195,36 L 0,36 Z" fill="#0F766E"/>
+    <text x="97" y="24" text-anchor="middle" class="cls-header-text">TwoWheeler</text>
+    <line x1="0" y1="36" x2="195" y2="36" stroke="#0F766E" stroke-width="1"/>
+    <text x="12" y="60" class="code-member">~ TwoWheeler(reg, pass)</text>
+    <text x="12" y="82" class="code-member">~ ratePerHour(): double</text>
+  </g>
+
+  <!-- Subclass: Car -->
+  <g transform="translate(540, 375)" filter="url(#soft-shadow)">
+    <rect width="195" height="105" rx="8" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5"/>
+    <path d="M 0,8 A 8,8 0 0,1 8,0 L 187,0 A 8,8 0 0,1 195,8 L 195,36 L 0,36 Z" fill="#1D4ED8"/>
+    <text x="97" y="24" text-anchor="middle" class="cls-header-text">Car</text>
+    <line x1="0" y1="36" x2="195" y2="36" stroke="#1D4ED8" stroke-width="1"/>
+    <text x="12" y="60" class="code-member">~ Car(regNo, pass)</text>
+    <text x="12" y="82" class="code-member">~ ratePerHour(): double</text>
+  </g>
+
+  <!-- Sub-subclass: ElectricCar -->
+  <g transform="translate(40, 375)" filter="url(#soft-shadow)">
+    <rect width="240" height="120" rx="8" fill="#FFFFFF" stroke="#4338CA" stroke-width="1.5"/>
+    <path d="M 0,8 A 8,8 0 0,1 8,0 L 232,0 A 8,8 0 0,1 240,8 L 240,36 L 0,36 Z" fill="#4338CA"/>
+    <text x="120" y="24" text-anchor="middle" class="cls-header-text">ElectricCar</text>
+    <line x1="0" y1="36" x2="240" y2="36" stroke="#4338CA" stroke-width="1"/>
+    <text x="12" y="60" class="code-member">~ ElectricCar(reg, pass)</text>
+    <text x="12" y="82" class="code-member">+ chargingFee(units): dbl</text>
+    <text x="12" y="100" class="code-comment">/* units * 12.0 */</text>
+  </g>
+
+  <!-- Class: ParkingTicket -->
+  <g transform="translate(680, 95)" filter="url(#soft-shadow)">
+    <rect width="240" height="185" rx="8" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5"/>
+    <path d="M 0,8 A 8,8 0 0,1 8,0 L 232,0 A 8,8 0 0,1 240,8 L 240,40 L 0,40 Z" fill="#475569"/>
+    <text x="120" y="18" text-anchor="middle" class="cls-meta-text">&lt;&lt;allocation state&gt;&gt;</text>
+    <text x="120" y="34" text-anchor="middle" class="cls-header-text">ParkingTicket</text>
+    <line x1="0" y1="40" x2="240" y2="40" stroke="#475569" stroke-width="1"/>
+    <!-- Attributes -->
+    <text x="14" y="64" class="code-member">~ vehicle: Vehicle</text>
+    <text x="14" y="84" class="code-member">~ start: int</text>
+    <text x="14" y="104" class="code-member">~ floor: int, slot: int</text>
+    <line x1="0" y1="116" x2="240" y2="116" stroke="#F1F5F9" stroke-width="1.2"/>
+    <!-- Methods -->
+    <text x="14" y="140" class="code-member">~ ParkingTicket(v, start,</text>
+    <text x="26" y="158" class="code-member">  floor, slot)</text>
+  </g>
+
+  <!-- Class: ParkingFacility -->
+  <g transform="translate(760, 340)" filter="url(#soft-shadow)">
+    <rect width="260" height="220" rx="8" fill="#FFFFFF" stroke="#1E3A8A" stroke-width="1.5"/>
+    <path d="M 0,8 A 8,8 0 0,1 8,0 L 252,0 A 8,8 0 0,1 260,8 L 260,40 L 0,40 Z" fill="#1E3A8A"/>
+    <text x="130" y="18" text-anchor="middle" class="cls-meta-text">&lt;&lt;system aggregate&gt;&gt;</text>
+    <text x="130" y="34" text-anchor="middle" class="cls-header-text">ParkingFacility</text>
+    <line x1="0" y1="40" x2="260" y2="40" stroke="#1E3A8A" stroke-width="1"/>
+    <!-- Attributes -->
+    <text x="12" y="64" class="code-member">~ occupied: boolean[][]</text>
+    <text x="12" y="84" class="code-member">~ tickets: List&lt;Ticket&gt;</text>
+    <text x="12" y="104" class="code-member">~ revenue: double</text>
+    <line x1="0" y1="116" x2="260" y2="116" stroke="#F1F5F9" stroke-width="1.2"/>
+    <!-- Methods -->
+    <text x="12" y="138" class="code-member">~ ParkingFacility(f, s)</text>
+    <text x="12" y="160" class="code-member">~ checkIn(v, time): Ticket</text>
+    <text x="12" y="182" class="code-member">~ checkOut(t, time,</text>
+    <text x="24" y="200" class="code-member">  units): double</text>
+  </g>
+
+  <!-- Connectors (Zero Crossing) -->
+  <!-- TwoWheeler to Vehicle -->
+  <path d="M 417,375 L 417,330" fill="none" stroke="#1E3A8A" stroke-width="2" marker-end="url(#generalization)"/>
+
+  <!-- Car to Vehicle -->
+  <path d="M 637,375 L 637,350 L 530,350 L 530,330" fill="none" stroke="#1E3A8A" stroke-width="2" marker-end="url(#generalization)"/>
+
+  <!-- ElectricCar to Car -->
+  <path d="M 280,410 L 540,410" fill="none" stroke="#1E3A8A" stroke-width="2" marker-end="url(#generalization)"/>
+
+  <!-- ElectricCar to Chargeable -->
+  <path d="M 160,375 L 160,205" fill="none" stroke="#4338CA" stroke-width="2" stroke-dasharray="6,4" marker-end="url(#realization)"/>
+
+  <!-- ParkingTicket to Vehicle -->
+  <path d="M 680,180 L 630,180" fill="none" stroke="#1E293B" stroke-width="1.8" marker-end="url(#assoc-arrow)"/>
+  <text x="635" y="172" class="mult-label">1</text>
+  <text x="668" y="172" class="mult-label">1</text>
+
+  <!-- ParkingFacility to ParkingTicket -->
+  <path d="M 830,340 L 830,280" fill="none" stroke="#1E3A8A" stroke-width="2" marker-start="url(#aggregation)"/>
+  <text x="838" y="325" class="mult-label">1</text>
+  <text x="838" y="295" class="mult-label">*</text>
+
+  <!-- Benchmark Panel -->
+  <g transform="translate(40, 520)" filter="url(#soft-shadow)">
+    <rect width="695" height="175" rx="8" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.5"/>
+    <rect width="6" height="175" rx="3" fill="#2563EB"/>
+    
+    <text x="20" y="26" font-family="'Segoe UI', sans-serif" font-size="12.5" font-weight="bold" fill="#1E3A8A">TASK 11 VERIFIED REVENUE BENCHMARK (Exact Match: Rs 230.0)</text>
+    <line x1="20" y1="34" x2="680" y2="34" stroke="#E2E8F0" stroke-width="1.2"/>
+    
+    <text x="20" y="56" class="card-body">&#x2022; Car (TN02B2, 120 min @ Rs 30/hr): 2 hrs * 30 = Rs 60.0</text>
+    <text x="20" y="76" class="card-body">&#x2022; Bike (TN01A1, 90 min @ Rs 10/hr): ceil(90/60) = 2 hrs * 10 = Rs 20.0</text>
+    <text x="20" y="96" class="card-body">&#x2022; EV (TN03C3, 60 min park + 10 kWh charge): 1 hr * 30 (Rs 30) + 10 * 12 (Rs 120) = Rs 150.0</text>
+    <text x="20" y="116" class="card-body">&#x2022; Monthly Pass Car (TN04D4, 60 min): monthlyPass=true &#x2192; Rs 0.0 waived; Zero-Min: Rs 0.0</text>
+    <text x="20" y="142" font-family="'Segoe UI', sans-serif" font-size="12" font-weight="bold" fill="#15803D">&#x2714; Total System Revenue Collected: Rs 60.0 + Rs 20.0 + Rs 150.0 + Rs 0.0 + Rs 0.0 = Rs 230.0</text>
+  </g>
+</svg>
