@@ -6,12 +6,12 @@
 ---
 
 ### Student & Submission Metadata
-- **Student Name**: BALA NAGA JASWANTH
-- **Register Number**: 192424300C
+- **Student Name**: Bala Naga Jaswanth
+- **Register Number**: 192424300
 - **Course**: Java Programming (CO1)
 - **Nature of Assignment**: Individual
-- **Submission Repository**: `CSA09-192424300C-Assignment1`
-- **GitHub Repository Link**: `https://github.com/Jaswanth/CSA09-192424300C-Assignment1`
+- **Submission Repository**: `CSA09-192424300-Assignment1`
+- **GitHub Repository Link**: `https://github.com/Jaswanth300/CSA09-192424300-Assignment1`
 - **JDK Version**: OpenJDK 21 LTS (`21.0.12.1`)
 - **Shell Environment**: Windows PowerShell 5.1
 
