@@ -1,5 +1,9 @@
+/**
+ * SIMATS Java Programming Assignment 1 - Task 03
+ * Control Logic & Slot Allocation (Complete the Code)
+ * Student: Bala Naga Jaswanth (Reg: 192424300)
+ */
 public class ParkingFacility {
-    // slots[floor][slot] holds a vehicle number, or null if the slot is free
     private final String[][] slots;
 
     public ParkingFacility(int[] slotsPerFloor) {
@@ -9,10 +13,7 @@ public class ParkingFacility {
         }
     }
 
-    /** Returns {floor, slot} of the first free slot, or null if it is full. */
     public int[] allocate(String vehicleNo) {
-        // TODO 1: Search floor by floor and slot by slot; place vehicleNo in the first
-        // free slot and return {floor, slot}
         for (int f = 0; f < slots.length; f++) {
             for (int s = 0; s < slots[f].length; s++) {
                 if (slots[f][s] == null) {
@@ -24,10 +25,7 @@ public class ParkingFacility {
         return null;
     }
 
-    /** Frees a slot. Returns false if the position is invalid or already free. */
     public boolean release(int floor, int slot) {
-        // TODO 2: Validate floor and slot, free the slot and return true; otherwise
-        // return false
         if (floor < 0 || floor >= slots.length) {
             return false;
         }
@@ -42,7 +40,6 @@ public class ParkingFacility {
     }
 
     public static void main(String[] args) {
-        // floor 0 has 2 slots, floor 1 has 1 slot
         ParkingFacility p = new ParkingFacility(new int[]{2, 1});
         System.out.println(java.util.Arrays.toString(p.allocate("TN01AB1111")));
         System.out.println(java.util.Arrays.toString(p.allocate("TN02CD2222")));
