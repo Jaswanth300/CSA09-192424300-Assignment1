@@ -1,6 +1,6 @@
 # SIMATS Engineering, Saveetha School of Engineering
 ## Java Programming (CSA09 / CSA0921)
-### Coursework Laboratory Portfolio
+### Comprehensive Coursework Laboratory Portfolio
 
 **Student Details:**
 - **Name:** Bala Naga Jaswanth
@@ -14,58 +14,60 @@
 
 ### Coursework Assignments Overview
 
-This repository houses the complete, academically rigorous, and empirically validated laboratory submissions for **Java Programming** across Course Outcomes CO1, CO2, CO3, and CO4:
+This repository contains the complete, academically rigorous, and empirically validated laboratory submissions for **Java Programming** across Course Outcomes CO1, CO2, CO3, and CO4:
 
 ```
 CSA09-192424300-Assignments/
-├── TASKS/                                     # Assignment 1: Campus Smart-Parking System (Tasks 01–12)
-├── diagrams/                                  # Assignment 1: Architecture, UML and class diagrams
-├── report/                                    # Assignment 1: Academic Report (PDF & DOCX)
-├── Assignment2/                               # Assignment 2: Strings & Collections (Q1–Q7)
-│   ├── Q1/ to Q7/                             # Source code implementations
+├── Assignment1/                               # Assignment 1 – CO1: Campus Smart-Parking System
+│   ├── TASKS/                                 # Implementation Tasks (Task01 through Task12)
+│   ├── diagrams/                              # Architecture, UML and class diagrams
+│   ├── report/                                # Academic Report files
+│   └── README.md                              # Assignment 1 detailed execution documentation
+├── Assignment2/                               # Assignment 2 – CO2: Strings & Collections Framework
+│   ├── Q1/ to Q7/                             # Complete Java implementations (Ticket, Playlist, Attendance, etc.)
 │   └── README.md                              # Compilation & execution instructions
-├── Assignment3/                               # Assignment 3: Exceptions & Multithreading (Q1–Q7)
-│   ├── Q1/ to Q7/                             # Source code implementations
+├── Assignment3/                               # Assignment 3 – CO3: Exception Handling & Multithreading
+│   ├── Q1/ to Q7/                             # Complete Java implementations (ATM, Storage, Concurrency, etc.)
 │   └── README.md                              # Compilation & execution instructions
-├── Assignment4/                               # Assignment 4: Event-Driven GUI Design (Tasks 01–06)
-│   ├── Task01/ to Task06/                     # Source code implementations
+├── Assignment4/                               # Assignment 4 – CO4: Event-Driven GUI Design
+│   ├── Task01/ to Task06/                     # Complete Java implementations (MVC, Layouts, Swing+JDBC)
 │   └── README.md                              # Compilation & execution instructions
 ├── screenshots/                               # Authentic Eclipse IDE execution transcripts
-│   ├── Assignment2/                           # Eclipse screenshots for Q1–Q7
-│   ├── Assignment3/                           # Eclipse screenshots for Q1–Q7
-│   └── Assignment4/                           # Eclipse screenshots for Tasks 01–06
-├── SIMATS_Java_Assignment_2_Report.pdf        # Final Comprehensive Report (35 Pages)
-├── SIMATS_Java_Assignment_2_Report.docx       # Editable Comprehensive Report
-├── SIMATS_Java_Assignment_3_Report.pdf        # Final Comprehensive Report (31 Pages)
-├── SIMATS_Java_Assignment_3_Report.docx       # Editable Comprehensive Report
-├── SIMATS_Java_Assignment_4_Report.pdf        # Final Comprehensive Report (29 Pages)
-├── SIMATS_Java_Assignment_4_Report.docx       # Editable Comprehensive Report
-└── README.md                                  # Repository overview and guide
+│   ├── Assignment2/                           # Eclipse transcripts for Q1–Q7
+│   ├── Assignment3/                           # Eclipse transcripts for Q1–Q7
+│   └── Assignment4/                           # Eclipse transcripts for Tasks 01–06
+├── SIMATS_Java_Assignment_1_Report.pdf        # Final Comprehensive Report: Assignment 1 (CO1)
+├── SIMATS_Java_Assignment_1_Report.docx       # Editable Comprehensive Report: Assignment 1
+├── SIMATS_Java_Assignment_2_Report.pdf        # Final Comprehensive Report: Assignment 2 (CO2) - 35 Pages
+├── SIMATS_Java_Assignment_2_Report.docx       # Editable Comprehensive Report: Assignment 2
+├── SIMATS_Java_Assignment_3_Report.pdf        # Final Comprehensive Report: Assignment 3 (CO3) - 31 Pages
+├── SIMATS_Java_Assignment_3_Report.docx       # Editable Comprehensive Report: Assignment 3
+├── SIMATS_Java_Assignment_4_Report.pdf        # Final Comprehensive Report: Assignment 4 (CO4) - 29 Pages
+├── SIMATS_Java_Assignment_4_Report.docx       # Editable Comprehensive Report: Assignment 4
+└── README.md                                  # Master repository portfolio guide
 ```
 
 ---
 
-### Assignment Summaries
+### Assignment Breakdown & Reports
 
-#### 1. Assignment 1 – CO1: Object-Oriented Campus Smart-Parking System
-- **Focus:** Object-oriented modeling of a multi-level campus parking facility under OpenJDK 21 LTS, progressing through problem analysis, control logic, inheritance hierarchies, polymorphic billing, modular encapsulation, and Strategy Pattern design adaptation.
-- **Artifacts:** `TASKS/`, `diagrams/`, `report/`
-
-#### 2. Assignment 2 – CO2: Strings and the Java Collection Framework
-- **Focus:** String/StringBuilder/StringBuffer benchmarking under load, ArrayList vs LinkedList operating boundaries, ArrayDeque double-ended queues, HashSet hashCode-equals identity contracts, Map trade-offs (HashMap, TreeMap, LinkedHashMap), generic ranking architectures (Comparable/Comparator), PriorityQueue triage ordering, and Day-4 Design Challenge (5-Bucket Multi-Level Queue).
-- **Artifacts:** `Assignment2/` directory, `SIMATS_Java_Assignment_2_Report.pdf` (35 pages), `SIMATS_Java_Assignment_2_Report.docx`
-
-#### 3. Assignment 3 – CO3: Exception Handling, Resource Management & Multithreading
-- **Focus:** Robust ATM exception hierarchy, user-defined checked/unchecked exceptions and chaining, Try-With-Resources resource leak elimination, Thread lifecycle and scheduling experiments, Cinema seat-booking race conditions and atomic synchronization, Deadlock prevention via lock ordering and producer-consumer token coordination, and a concurrent fault-tolerant semester result processor.
-- **Artifacts:** `Assignment3/` directory, `SIMATS_Java_Assignment_3_Report.pdf` (31 pages), `SIMATS_Java_Assignment_3_Report.docx`
-
-#### 4. Assignment 4 – CO4: Event-Driven Graphical User Interface Design
-- **Focus:** GUI design review and MVC refactoring, Outpatient appointment desk event models, Library search layout resizing with nested containers, event-handling forensics and repaint persistence, comparative event styles (Frame listener, named inner class, anonymous inner class, lambdas), and a full-featured Campus Event Registration Desktop Application with Swing & SQLite JDBC.
-- **Artifacts:** `Assignment4/` directory, `SIMATS_Java_Assignment_4_Report.pdf` (29 pages), `SIMATS_Java_Assignment_4_Report.docx`
+| Assignment | Course Outcome | Focus / Topic | Directory | Final Report |
+| :--- | :--- | :--- | :--- | :--- |
+| **Assignment 1** | **CO1** | Campus Smart-Parking System (OOP, Inheritance, Strategy Pattern) | [`Assignment1/`](./Assignment1/) | [`SIMATS_Java_Assignment_1_Report.pdf`](./SIMATS_Java_Assignment_1_Report.pdf) |
+| **Assignment 2** | **CO2** | Strings, StringBuilder, Collections, hashCode-equals, Bucket Queue | [`Assignment2/`](./Assignment2/) | [`SIMATS_Java_Assignment_2_Report.pdf`](./SIMATS_Java_Assignment_2_Report.pdf) |
+| **Assignment 3** | **CO3** | Exception Hierarchy, Try-With-Resources, Threads, Concurrency | [`Assignment3/`](./Assignment3/) | [`SIMATS_Java_Assignment_3_Report.pdf`](./SIMATS_Java_Assignment_3_Report.pdf) |
+| **Assignment 4** | **CO4** | Event-Driven GUI Design, Swing MVC, Forensics, Swing+JDBC App | [`Assignment4/`](./Assignment4/) | [`SIMATS_Java_Assignment_4_Report.pdf`](./SIMATS_Java_Assignment_4_Report.pdf) |
 
 ---
 
-### Compilation and Execution Instructions
+### Quick Compilation & Execution Guides
+
+#### Assignment 1 (CO1):
+```bash
+cd Assignment1/TASKS/Task11
+javac SmartParkingSystem.java
+java SmartParkingSystem
+```
 
 #### Assignment 2 (CO2):
 ```bash
