@@ -1,12 +1,11 @@
-# SIMATS School of Engineering and Technology
-## Department of Computer Science & Engineering
-### CSA09 / CSA0921: Programming in Java Laboratory Portfolio
+# SIMATS Engineering, Saveetha School of Engineering
+## Java Programming (CSA09)
+### Coursework Laboratory Portfolio
 
 **Student Details:**
 - **Name:** Bala Naga Jaswanth
 - **Registration Number:** 192424300
-- **Degree:** B.Tech Computer Science and Engineering
-- **Institution:** SIMATS School of Engineering and Technology, Chennai
+- **College:** SIMATS Engineering, Saveetha School of Engineering
 - **GitHub Profile:** [https://github.com/Jaswanth300](https://github.com/Jaswanth300)
 - **Repository:** [https://github.com/Jaswanth300/CSA09-192424300-Assignments](https://github.com/Jaswanth300/CSA09-192424300-Assignments)
 
@@ -14,7 +13,7 @@
 
 ### Coursework Assignments Overview
 
-This repository houses the complete, academically rigorous, and empirically validated laboratory submissions for the course **Programming in Java (CSA09 / CSA0921)** across Course Outcomes CO2, CO3, and CO4 (with Assignment 1 already maintained in the repository baseline):
+This repository houses the complete, academically rigorous, and empirically validated laboratory submissions for **Java Programming (CSA09)** across Course Outcomes CO2, CO3, and CO4:
 
 1. **Assignment 2 – CO2: Strings and the Java Collection Framework**
    - **Focus:** String/StringBuilder/StringBuffer benchmarking under load, ArrayList vs LinkedList operating boundaries, ArrayDeque double-ended queues, HashSet hashCode-equals identity contracts, Map trade-offs (HashMap, TreeMap, LinkedHashMap), generic ranking architectures (Comparable/Comparator), PriorityQueue triage ordering, and Day-4 Design Challenge (5-Bucket Multi-Level Queue).

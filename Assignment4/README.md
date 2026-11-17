@@ -1,14 +1,14 @@
-# SIMATS School of Engineering and Technology
-## Department of Computer Science & Engineering
-### Course: Programming in Java (CSA09)
+# SIMATS Engineering, Saveetha School of Engineering
+## Java Programming (CSA09)
 ### Assignment 4 – CO4: Event-Driven GUI Design
 
 **Student Details:**
 - **Name:** Bala Naga Jaswanth
 - **Register Number:** 192424300
+- **College:** SIMATS Engineering, Saveetha School of Engineering
 - **Java Version:** OpenJDK 21 LTS / Java SE 26
 - **GitHub Profile:** [https://github.com/Jaswanth300](https://github.com/Jaswanth300)
-- **GitHub Repository:** [https://github.com/Jaswanth300/CSA09-192424300-Assignment1](https://github.com/Jaswanth300/CSA09-192424300-Assignment1)
+- **Repository:** [https://github.com/Jaswanth300/CSA09-192424300-Assignments](https://github.com/Jaswanth300/CSA09-192424300-Assignments)
 
 ---
 

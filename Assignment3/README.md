@@ -1,14 +1,14 @@
-# SIMATS School of Engineering and Technology
-## Department of Computer Science & Engineering
-### Course: Java Programming (CSA0921 / CSA09)
+# SIMATS Engineering, Saveetha School of Engineering
+## Java Programming (CSA09)
 ### Assignment 3 – CO3: Exception Handling and Multithreading
 
 **Student Details:**
 - **Student A (Lead):** Bala Naga Jaswanth (Reg: 192424300)
-- **Student B (Collaborator):** Peer Contributor / Pair Partner (Reg: 192424300)
+- **Student B (Collaborator):** Peer Contributor / Pair Partner
+- **College:** SIMATS Engineering, Saveetha School of Engineering
 - **Java Version:** OpenJDK 21 LTS / Java SE 26
 - **GitHub Profile:** [https://github.com/Jaswanth300](https://github.com/Jaswanth300)
-- **GitHub Repository:** [https://github.com/Jaswanth300/CSA09-192424300-Assignment1](https://github.com/Jaswanth300/CSA09-192424300-Assignment1)
+- **Repository:** [https://github.com/Jaswanth300/CSA09-192424300-Assignments](https://github.com/Jaswanth300/CSA09-192424300-Assignments)
 
 ---
 
