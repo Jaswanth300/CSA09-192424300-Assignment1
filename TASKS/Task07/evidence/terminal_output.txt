@@ -1,0 +1,5 @@
+TwoWheeler [TN01A1] fee for 130 mins: Rs 30.0
+Car [TN02B2] fee for 130 mins: Rs 90.0
+car1.equals(car2) [same regNo]: true
+car1.equals(car3) [different regNo]: false
+car1.hashCode() == car2.hashCode(): true

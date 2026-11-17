@@ -1,0 +1,6 @@
+Spot (0,0) initially free: true
+Parked v1 (TN01AB1111): true
+Spot (0,0) free after parking: false
+Attempt to park v2 in occupied spot: false
+Vacated spot, removed vehicle: TN01AB1111
+Spot (0,0) free after vacate: true

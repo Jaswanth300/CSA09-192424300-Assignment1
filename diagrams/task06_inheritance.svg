@@ -1,0 +1,164 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 640" width="940" height="640">
+
+  <defs>
+    <style>
+      .canvas-title { font-family: 'Segoe UI', Inter, -apple-system, sans-serif; font-size: 22px; font-weight: 700; fill: #0F172A; }
+      .canvas-subtitle { font-family: 'Segoe UI', Inter, -apple-system, sans-serif; font-size: 13.5px; font-weight: 400; fill: #475569; }
+      .cls-header-text { font-family: 'Segoe UI', Inter, -apple-system, sans-serif; font-size: 16px; font-weight: 700; fill: #FFFFFF; }
+      .cls-meta-text { font-family: 'Segoe UI', Inter, -apple-system, sans-serif; font-size: 12px; font-style: italic; fill: #E2E8F0; }
+      .code-member { font-family: 'Consolas', 'Courier New', monospace; font-size: 13.5px; fill: #0F172A; }
+      .code-comment { font-family: 'Segoe UI', Inter, sans-serif; font-size: 11.5px; font-style: italic; fill: #0284C7; }
+      .card-title { font-family: 'Segoe UI', Inter, -apple-system, sans-serif; font-size: 13px; font-weight: 700; fill: #92400E; }
+      .card-body { font-family: 'Segoe UI', Inter, -apple-system, sans-serif; font-size: 12.5px; fill: #78350F; line-height: 1.5; }
+      .mult-label { font-family: 'Consolas', monospace; font-size: 13px; font-weight: 700; fill: #1E3A8A; }
+      .conn-text { font-family: 'Segoe UI', Inter, sans-serif; font-size: 12px; font-weight: 600; fill: #334155; }
+      .seq-head { font-family: 'Segoe UI', Inter, sans-serif; font-size: 14.5px; font-weight: 700; fill: #FFFFFF; }
+      .seq-call-text { font-family: 'Consolas', monospace; font-size: 12.5px; font-weight: 600; fill: #0F172A; }
+      .seq-ret-text { font-family: 'Consolas', monospace; font-size: 12.5px; font-weight: 600; fill: #2563EB; }
+    </style>
+    <filter id="soft-shadow" x="-4%" y="-4%" width="108%" height="112%" filterUnits="objectBoundingBox">
+      <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#0F172A" flood-opacity="0.06"/>
+    </filter>
+    <!-- Generalization Arrow (Closed triangle, white fill, navy stroke) -->
+    <marker id="generalization" viewBox="0 0 20 20" refX="20" refY="10" markerWidth="14" markerHeight="14" orient="auto-start-reverse">
+      <polygon points="0,0 20,10 0,20" fill="#FFFFFF" stroke="#1E3A8A" stroke-width="2" stroke-linejoin="round"/>
+    </marker>
+    <!-- Realization Arrow (Closed triangle, white fill, indigo stroke) -->
+    <marker id="realization" viewBox="0 0 20 20" refX="20" refY="10" markerWidth="14" markerHeight="14" orient="auto-start-reverse">
+      <polygon points="0,0 20,10 0,20" fill="#FFFFFF" stroke="#4338CA" stroke-width="2" stroke-linejoin="round"/>
+    </marker>
+    <!-- Directed Association Arrow -->
+    <marker id="assoc-arrow" viewBox="0 0 16 16" refX="16" refY="8" markerWidth="10" markerHeight="10" orient="auto-start-reverse">
+      <polyline points="2,2 14,8 2,14" fill="none" stroke="#1E293B" stroke-width="2" stroke-linecap="round"/>
+    </marker>
+    <!-- Dependency Open Arrow -->
+    <marker id="dep-arrow" viewBox="0 0 16 16" refX="16" refY="8" markerWidth="10" markerHeight="10" orient="auto-start-reverse">
+      <polyline points="2,2 14,8 2,14" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round"/>
+    </marker>
+    <!-- Aggregation Diamond (Open diamond, white fill) -->
+    <marker id="aggregation" viewBox="0 0 24 16" refX="24" refY="8" markerWidth="16" markerHeight="12" orient="auto-start-reverse">
+      <polygon points="0,8 12,0 24,8 12,16" fill="#FFFFFF" stroke="#1E3A8A" stroke-width="2"/>
+    </marker>
+    <!-- Sequence Synchronous Call (Solid arrow) -->
+    <marker id="seq-call" viewBox="0 0 16 16" refX="16" refY="8" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
+      <polygon points="0,2 14,8 0,14" fill="#0F172A"/>
+    </marker>
+    <!-- Sequence Return Message (Dashed open arrow) -->
+    <marker id="seq-ret" viewBox="0 0 16 16" refX="16" refY="8" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
+      <polyline points="0,2 14,8 0,14" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round"/>
+    </marker>
+  </defs>
+
+  <!-- Canvas Background -->
+  <rect width="100%" height="100%" fill="#F8FAFC" rx="14"/>
+  <rect x="1" y="1" width="938" height="638" fill="none" stroke="#E2E8F0" stroke-width="1.5" rx="13"/>
+
+  <!-- Canvas Header -->
+  <text x="35" y="42" class="canvas-title">Task 06: Vehicle Inheritance Hierarchy &amp; Constructor Trace</text>
+  <text x="35" y="64" class="canvas-subtitle">Publication-Quality UML 2.5 Class Diagram | Generalization Hierarchy &amp; Dynamic Overriding</text>
+  <line x1="35" y1="76" x2="905" y2="76" stroke="#E2E8F0" stroke-width="1.5"/>
+
+  <!-- Superclass: Vehicle -->
+  <g transform="translate(330, 95)" filter="url(#soft-shadow)">
+    <rect width="280" height="135" rx="8" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5"/>
+    <path d="M 0,8 A 8,8 0 0,1 8,0 L 272,0 A 8,8 0 0,1 280,8 L 280,44 L 0,44 Z" fill="#1E3A8A"/>
+    <text x="140" y="20" text-anchor="middle" class="cls-meta-text">&lt;&lt;superclass&gt;&gt;</text>
+    <text x="140" y="37" text-anchor="middle" class="cls-header-text">Vehicle</text>
+    <line x1="0" y1="44" x2="280" y2="44" stroke="#1E3A8A" stroke-width="1"/>
+    <!-- Attributes -->
+    <text x="16" y="68" class="code-member">~ regNo: String</text>
+    <line x1="0" y1="78" x2="280" y2="78" stroke="#F1F5F9" stroke-width="1.2"/>
+    <!-- Methods -->
+    <text x="16" y="100" class="code-member">+ Vehicle(regNo: String)</text>
+    <text x="16" y="122" class="code-member">+ ratePerHour(): double</text>
+  </g>
+
+  <!-- Subclass: TwoWheeler -->
+  <g transform="translate(40, 290)" filter="url(#soft-shadow)">
+    <rect width="270" height="130" rx="8" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5"/>
+    <path d="M 0,8 A 8,8 0 0,1 8,0 L 262,0 A 8,8 0 0,1 270,8 L 270,42 L 0,42 Z" fill="#0F766E"/>
+    <text x="135" y="19" text-anchor="middle" class="cls-meta-text">&lt;&lt;subclass&gt;&gt;</text>
+    <text x="135" y="36" text-anchor="middle" class="cls-header-text">TwoWheeler</text>
+    <line x1="0" y1="42" x2="270" y2="42" stroke="#0F766E" stroke-width="1"/>
+    <!-- Methods -->
+    <text x="14" y="68" class="code-member">+ TwoWheeler(regNo: String)</text>
+    <text x="14" y="94" class="code-member">+ ratePerHour(): double</text>
+    <text x="14" y="114" class="code-comment">/* overrides: Rs 10.0/hr */</text>
+  </g>
+
+  <!-- Subclass: Car -->
+  <g transform="translate(340, 290)" filter="url(#soft-shadow)">
+    <rect width="260" height="130" rx="8" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5"/>
+    <path d="M 0,8 A 8,8 0 0,1 8,0 L 252,0 A 8,8 0 0,1 260,8 L 260,42 L 0,42 Z" fill="#1D4ED8"/>
+    <text x="130" y="19" text-anchor="middle" class="cls-meta-text">&lt;&lt;subclass&gt;&gt;</text>
+    <text x="130" y="36" text-anchor="middle" class="cls-header-text">Car</text>
+    <line x1="0" y1="42" x2="260" y2="42" stroke="#1D4ED8" stroke-width="1"/>
+    <!-- Methods -->
+    <text x="14" y="68" class="code-member">+ Car(regNo: String)</text>
+    <text x="14" y="94" class="code-member">+ ratePerHour(): double</text>
+    <text x="14" y="114" class="code-comment">/* overrides: Rs 30.0/hr */</text>
+  </g>
+
+  <!-- Sub-subclass: ElectricCar -->
+  <g transform="translate(340, 480)" filter="url(#soft-shadow)">
+    <rect width="260" height="135" rx="8" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5"/>
+    <path d="M 0,8 A 8,8 0 0,1 8,0 L 252,0 A 8,8 0 0,1 260,8 L 260,42 L 0,42 Z" fill="#4338CA"/>
+    <text x="130" y="19" text-anchor="middle" class="cls-meta-text">&lt;&lt;subclass of Car&gt;&gt;</text>
+    <text x="130" y="36" text-anchor="middle" class="cls-header-text">ElectricCar</text>
+    <line x1="0" y1="42" x2="260" y2="42" stroke="#4338CA" stroke-width="1"/>
+    <!-- Attributes -->
+    <text x="14" y="66" class="code-member">~ batteryCapacity: int</text>
+    <line x1="0" y1="76" x2="260" y2="76" stroke="#F1F5F9" stroke-width="1.2"/>
+    <!-- Methods -->
+    <text x="14" y="98" class="code-member">+ ElectricCar(regNo, batt)</text>
+    <text x="14" y="118" class="code-comment">/* inherits Car rate: Rs 30.0 */</text>
+  </g>
+
+  <!-- Connectors (Clean Orthogonal, No Crossing) -->
+  <!-- TwoWheeler to Vehicle -->
+  <path d="M 175,290 L 175,255 L 430,255 L 430,230" fill="none" stroke="#1E3A8A" stroke-width="2" marker-end="url(#generalization)"/>
+
+  <!-- Car to Vehicle -->
+  <path d="M 470,290 L 470,230" fill="none" stroke="#1E3A8A" stroke-width="2" marker-end="url(#generalization)"/>
+
+  <!-- ElectricCar to Car -->
+  <path d="M 470,480 L 470,420" fill="none" stroke="#1E3A8A" stroke-width="2" marker-end="url(#generalization)"/>
+
+  <!-- Architectural Callout Panel -->
+  <g transform="translate(635, 110)" filter="url(#soft-shadow)">
+    <rect width="270" height="295" rx="8" fill="#FFFDF5" stroke="#FDE68A" stroke-width="1.5"/>
+    <rect width="6" height="295" rx="3" fill="#F59E0B"/>
+    
+    <text x="20" y="30" class="card-title">CONSTRUCTOR ORDER &amp; RATES</text>
+    <line x1="20" y1="38" x2="255" y2="38" stroke="#FEF3C7" stroke-width="1.5"/>
+    
+    <text x="20" y="62" font-family="'Segoe UI', sans-serif" font-size="12" font-weight="bold" fill="#78350F">1. super() Chaining Trace:</text>
+    <text x="26" y="84" class="card-body">&#x2022; Instantiation: ElectricCar("TN03..", 40)</text>
+    <text x="26" y="104" class="card-body">&#x2022; ElectricCar calls super(regNo)</text>
+    <text x="26" y="124" class="card-body">&#x2022; Car calls super(regNo)</text>
+    <text x="26" y="144" class="card-body">&#x2022; Console Output: 1 &#x2192; 2 &#x2192; 3</text>
+
+    <text x="20" y="174" font-family="'Segoe UI', sans-serif" font-size="12" font-weight="bold" fill="#78350F">2. Polymorphic Overriding:</text>
+    <text x="26" y="196" class="card-body">&#x2022; Vehicle base rate: Rs 20.0</text>
+    <text x="26" y="216" class="card-body">&#x2022; TwoWheeler rate: Rs 10.0</text>
+    <text x="26" y="236" class="card-body">&#x2022; Car rate: Rs 30.0</text>
+    <text x="26" y="256" class="card-body">&#x2022; ElectricCar: inherits Rs 30.0</text>
+    <text x="20" y="282" font-family="'Segoe UI', sans-serif" font-size="11.5" font-weight="bold" fill="#047857">&#x2714; Verified against Task06 output</text>
+  </g>
+
+  <!-- UML Key Panel -->
+  <g transform="translate(635, 430)">
+    <rect width="270" height="150" rx="8" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.2"/>
+    <text x="18" y="26" font-family="'Segoe UI', sans-serif" font-size="12" font-weight="bold" fill="#334155">UML 2.5 NOTATION KEY</text>
+    <line x1="18" y1="34" x2="252" y2="34" stroke="#F1F5F9" stroke-width="1.2"/>
+    
+    <line x1="22" y1="58" x2="65" y2="58" stroke="#1E3A8A" stroke-width="2" marker-end="url(#generalization)"/>
+    <text x="75" y="62" font-family="'Segoe UI', sans-serif" font-size="12" fill="#475569">Generalization ("is-a")</text>
+
+    <text x="22" y="92" class="code-member">~ package-private</text>
+    <text x="145" y="92" class="code-member">+ public</text>
+    <text x="22" y="116" class="code-member">- private</text>
+    <text x="145" y="116" class="code-member"># protected</text>
+    <text x="22" y="138" font-family="'Segoe UI', sans-serif" font-size="11" fill="#64748B" font-style="italic">Source-verified with Task06.java</text>
+  </g>
+</svg>

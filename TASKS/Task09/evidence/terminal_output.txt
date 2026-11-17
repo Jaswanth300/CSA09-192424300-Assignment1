@@ -1,0 +1,5 @@
+Vehicle: TN03EV5555
+Parking Fee (120 mins): Rs 60.0
+Charging Fee (10 kWh): Rs 120.0
+Service Tax (default method): Rs 5.0
+Total Amount Payable: Rs 185.0

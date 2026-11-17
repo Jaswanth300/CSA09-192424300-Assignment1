@@ -1,0 +1,7 @@
+Car allocated to Floor 0, Slot 0
+Bike allocated to Floor 0, Slot 1
+Validation caught negative duration: Duration cannot be negative
+Validation caught blank regNo: Registration number cannot be blank
+Cached Integers (100 == 100): true
+Non-cached Integers (200 == 200): false (Reference comparison)
+Non-cached Integers (200.equals(200)): true (Value comparison)

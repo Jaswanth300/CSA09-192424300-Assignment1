@@ -1,0 +1,7 @@
+Ticket #1 for TN01A1111
+Ticket #2 for TN02B2222
+Total tickets issued: 2
+Active tickets inside: 2
+After vehicle 1 exits, active count: 1
+t1 set to null (eligible for GC)
+Caller t2 is still valid: true

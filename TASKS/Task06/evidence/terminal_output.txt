@@ -1,0 +1,11 @@
+Creating ElectricCar (tracing constructor order):
+1. Vehicle constructor called for TN03EV9999
+2. Car constructor called
+3. ElectricCar constructor called (Battery: 40 kWh)
+1. Vehicle constructor called for TN01BK1111
+2. TwoWheeler constructor called
+1. Vehicle constructor called for TN02CR2222
+2. Car constructor called
+Bike rate per hour: Rs 10.0
+Car rate per hour: Rs 30.0
+EV rate per hour (inherited from Car): Rs 30.0

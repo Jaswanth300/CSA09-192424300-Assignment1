@@ -1,0 +1,6 @@
+Duration: 59 minutes, Hourly Rate: Rs 30.0
+Naive calculation (minutes / 60): 0 hrs -> Rs 0.0
+Safe ceiling ((minutes + 59) / 60): 1 hrs -> Rs 30.0
+Floor 0 slots: 2, Floor 1 slots: 3
+Slot (0,0) holds: TN01AB1111
+Slot (1,2) holds: TN02CD2222

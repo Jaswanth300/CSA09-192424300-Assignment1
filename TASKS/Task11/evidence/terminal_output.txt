@@ -1,0 +1,11 @@
+Full parking: true
+Duplicate vehicle: true
+Car fee: Rs 60.0
+Bike fee: Rs 20.0
+EV fee: Rs 150.0
+Monthly pass fee: Rs 0.0
+Zero-minute fee: Rs 0.0
+Invalid ticket: -1.0
+Expected revenue: Rs 230.0
+Actual revenue: Rs 230.0
+Revenue match: true

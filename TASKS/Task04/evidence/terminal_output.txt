@@ -1,0 +1,4 @@
+Default ticket: Ticket ID: TKT-000, Vehicle: UNKNOWN, Location: Floor 0 Slot 0
+Parameterized ticket: Ticket ID: TKT-101, Vehicle: TN01AB1111, Location: Floor 1 Slot 2
+Chained ticket: Ticket ID: TKT-102, Vehicle: TN02CD2222, Location: Floor 0 Slot 0
+Duplicate ticket: Ticket ID: TKT-101-DUP, Vehicle: TN01AB1111, Location: Floor 1 Slot 2

@@ -1,0 +1,222 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1020 720" width="1020" height="720">
+
+  <defs>
+    <style>
+      .canvas-title { font-family: 'Segoe UI', Inter, -apple-system, sans-serif; font-size: 22px; font-weight: 700; fill: #0F172A; }
+      .canvas-subtitle { font-family: 'Segoe UI', Inter, -apple-system, sans-serif; font-size: 13.5px; font-weight: 400; fill: #475569; }
+      .cls-header-text { font-family: 'Segoe UI', Inter, -apple-system, sans-serif; font-size: 16px; font-weight: 700; fill: #FFFFFF; }
+      .cls-meta-text { font-family: 'Segoe UI', Inter, -apple-system, sans-serif; font-size: 12px; font-style: italic; fill: #E2E8F0; }
+      .code-member { font-family: 'Consolas', 'Courier New', monospace; font-size: 13.5px; fill: #0F172A; }
+      .code-comment { font-family: 'Segoe UI', Inter, sans-serif; font-size: 11.5px; font-style: italic; fill: #0284C7; }
+      .card-title { font-family: 'Segoe UI', Inter, -apple-system, sans-serif; font-size: 13px; font-weight: 700; fill: #92400E; }
+      .card-body { font-family: 'Segoe UI', Inter, -apple-system, sans-serif; font-size: 12.5px; fill: #78350F; line-height: 1.5; }
+      .mult-label { font-family: 'Consolas', monospace; font-size: 13px; font-weight: 700; fill: #1E3A8A; }
+      .conn-text { font-family: 'Segoe UI', Inter, sans-serif; font-size: 12px; font-weight: 600; fill: #334155; }
+      .seq-head { font-family: 'Segoe UI', Inter, sans-serif; font-size: 14.5px; font-weight: 700; fill: #FFFFFF; }
+      .seq-call-text { font-family: 'Consolas', monospace; font-size: 12.5px; font-weight: 600; fill: #0F172A; }
+      .seq-ret-text { font-family: 'Consolas', monospace; font-size: 12.5px; font-weight: 600; fill: #2563EB; }
+    </style>
+    <filter id="soft-shadow" x="-4%" y="-4%" width="108%" height="112%" filterUnits="objectBoundingBox">
+      <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#0F172A" flood-opacity="0.06"/>
+    </filter>
+    <!-- Generalization Arrow (Closed triangle, white fill, navy stroke) -->
+    <marker id="generalization" viewBox="0 0 20 20" refX="20" refY="10" markerWidth="14" markerHeight="14" orient="auto-start-reverse">
+      <polygon points="0,0 20,10 0,20" fill="#FFFFFF" stroke="#1E3A8A" stroke-width="2" stroke-linejoin="round"/>
+    </marker>
+    <!-- Realization Arrow (Closed triangle, white fill, indigo stroke) -->
+    <marker id="realization" viewBox="0 0 20 20" refX="20" refY="10" markerWidth="14" markerHeight="14" orient="auto-start-reverse">
+      <polygon points="0,0 20,10 0,20" fill="#FFFFFF" stroke="#4338CA" stroke-width="2" stroke-linejoin="round"/>
+    </marker>
+    <!-- Directed Association Arrow -->
+    <marker id="assoc-arrow" viewBox="0 0 16 16" refX="16" refY="8" markerWidth="10" markerHeight="10" orient="auto-start-reverse">
+      <polyline points="2,2 14,8 2,14" fill="none" stroke="#1E293B" stroke-width="2" stroke-linecap="round"/>
+    </marker>
+    <!-- Dependency Open Arrow -->
+    <marker id="dep-arrow" viewBox="0 0 16 16" refX="16" refY="8" markerWidth="10" markerHeight="10" orient="auto-start-reverse">
+      <polyline points="2,2 14,8 2,14" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round"/>
+    </marker>
+    <!-- Aggregation Diamond (Open diamond, white fill) -->
+    <marker id="aggregation" viewBox="0 0 24 16" refX="24" refY="8" markerWidth="16" markerHeight="12" orient="auto-start-reverse">
+      <polygon points="0,8 12,0 24,8 12,16" fill="#FFFFFF" stroke="#1E3A8A" stroke-width="2"/>
+    </marker>
+    <!-- Sequence Synchronous Call (Solid arrow) -->
+    <marker id="seq-call" viewBox="0 0 16 16" refX="16" refY="8" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
+      <polygon points="0,2 14,8 0,14" fill="#0F172A"/>
+    </marker>
+    <!-- Sequence Return Message (Dashed open arrow) -->
+    <marker id="seq-ret" viewBox="0 0 16 16" refX="16" refY="8" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
+      <polyline points="0,2 14,8 0,14" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round"/>
+    </marker>
+  </defs>
+
+  <!-- Canvas Background -->
+  <rect width="100%" height="100%" fill="#F8FAFC" rx="14"/>
+  <rect x="1" y="1" width="1018" height="718" fill="none" stroke="#E2E8F0" stroke-width="1.5" rx="13"/>
+
+  <!-- Canvas Header -->
+  <text x="35" y="42" class="canvas-title">Task 10: Modular Package Architecture &amp; Visibility Encapsulation</text>
+  <text x="35" y="64" class="canvas-subtitle">Multi-Package Subsystem Partitioning | Data Hiding, Mutator Validation &amp; Integer Cache</text>
+  <line x1="35" y1="76" x2="985" y2="76" stroke="#E2E8F0" stroke-width="1.5"/>
+
+  <!-- ================= PACKAGE 1: parking.app ================= -->
+  <g transform="translate(35, 95)">
+    <!-- Package Tab -->
+    <path d="M 0,0 L 110,0 L 125,22 L 0,22 Z" fill="#E2E8F0"/>
+    <text x="10" y="16" font-family="'Segoe UI', sans-serif" font-size="11.5" font-weight="bold" fill="#334155">parking.app</text>
+    <!-- Package Boundary -->
+    <rect y="22" width="260" height="205" rx="8" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.5" stroke-dasharray="5,4"/>
+    
+    <!-- Class: MainApp -->
+    <g transform="translate(15, 40)" filter="url(#soft-shadow)">
+      <rect width="230" height="115" rx="6" fill="#FFFFFF" stroke="#94A3B8" stroke-width="1.5"/>
+      <path d="M 0,6 A 6,6 0 0,1 6,0 L 224,0 A 6,6 0 0,1 230,6 L 230,36 L 0,36 Z" fill="#334155"/>
+      <text x="115" y="17" text-anchor="middle" class="cls-meta-text">&lt;&lt;entry point&gt;&gt;</text>
+      <text x="115" y="31" text-anchor="middle" class="cls-header-text">MainApp</text>
+      <line x1="0" y1="36" x2="230" y2="36" stroke="#334155" stroke-width="1"/>
+      <text x="10" y="60" class="code-member">+ main(args: String[]): void</text>
+      <line x1="0" y1="70" x2="230" y2="70" stroke="#F1F5F9" stroke-width="1"/>
+      <text x="10" y="90" font-family="'Segoe UI', sans-serif" font-size="11" fill="#475569">&#x2022; Tests ParkingService</text>
+      <text x="10" y="106" font-family="'Segoe UI', sans-serif" font-size="11" fill="#475569">&#x2022; Tests Integer Cache</text>
+    </g>
+  </g>
+
+  <!-- ================= PACKAGE 2: parking.service ================= -->
+  <g transform="translate(35, 340)">
+    <!-- Package Tab -->
+    <path d="M 0,0 L 130,0 L 145,22 L 0,22 Z" fill="#DBEAFE"/>
+    <text x="10" y="16" font-family="'Segoe UI', sans-serif" font-size="11.5" font-weight="bold" fill="#1E40AF">parking.service</text>
+    <!-- Package Boundary -->
+    <rect y="22" width="280" height="345" rx="8" fill="#F0F7FF" stroke="#93C5FD" stroke-width="1.5" stroke-dasharray="5,4"/>
+    
+    <!-- Class: ParkingService -->
+    <g transform="translate(15, 40)" filter="url(#soft-shadow)">
+      <rect width="250" height="190" rx="6" fill="#FFFFFF" stroke="#93C5FD" stroke-width="1.5"/>
+      <path d="M 0,6 A 6,6 0 0,1 6,0 L 244,0 A 6,6 0 0,1 250,6 L 250,38 L 0,38 Z" fill="#1E3A8A"/>
+      <text x="125" y="18" text-anchor="middle" class="cls-meta-text">&lt;&lt;service orchestrator&gt;&gt;</text>
+      <text x="125" y="32" text-anchor="middle" class="cls-header-text">ParkingService</text>
+      <line x1="0" y1="38" x2="250" y2="38" stroke="#1E3A8A" stroke-width="1"/>
+      <!-- Attributes -->
+      <text x="10" y="60" class="code-member">- facility: ParkingSpot[][]</text>
+      <line x1="0" y1="70" x2="250" y2="70" stroke="#F1F5F9" stroke-width="1"/>
+      <!-- Methods -->
+      <text x="10" y="92" class="code-member">+ ParkingService(f, s)</text>
+      <text x="10" y="114" class="code-member">+ allocateSpot(v: Vehicle):</text>
+      <text x="24" y="130" class="code-member">  ParkingSpot</text>
+      <text x="10" y="152" class="code-member">+ calculateFee(v: Vehicle,</text>
+      <text x="24" y="168" class="code-member">  minutes: int): double</text>
+    </g>
+
+    <g transform="translate(15, 250)">
+      <rect width="250" height="75" rx="4" fill="#FFFFFF" stroke="#BFDBFE" stroke-width="1"/>
+      <text x="10" y="20" font-family="'Segoe UI', sans-serif" font-size="11.5" font-weight="bold" fill="#1E3A8A">Safe Ceiling Billing:</text>
+      <text x="10" y="42" class="code-member">int h = (minutes + 59)/60;</text>
+      <text x="10" y="62" class="code-member">return h * v.ratePerHour();</text>
+    </g>
+  </g>
+
+  <!-- ================= PACKAGE 3: parking.model ================= -->
+  <g transform="translate(355, 95)">
+    <!-- Package Tab -->
+    <path d="M 0,0 L 130,0 L 145,22 L 0,22 Z" fill="#DCFCE7"/>
+    <text x="10" y="16" font-family="'Segoe UI', sans-serif" font-size="11.5" font-weight="bold" fill="#15803D">parking.model</text>
+    <!-- Package Boundary -->
+    <rect y="22" width="630" height="590" rx="8" fill="#F0FDF4" stroke="#86EFAC" stroke-width="1.5" stroke-dasharray="5,4"/>
+
+    <!-- Abstract Class: Vehicle -->
+    <g transform="translate(20, 40)" filter="url(#soft-shadow)">
+      <rect width="290" height="195" rx="6" fill="#FFFFFF" stroke="#86EFAC" stroke-width="1.5"/>
+      <path d="M 0,6 A 6,6 0 0,1 6,0 L 284,0 A 6,6 0 0,1 290,6 L 290,38 L 0,38 Z" fill="#065F46"/>
+      <text x="145" y="18" text-anchor="middle" class="cls-meta-text">&lt;&lt;abstract superclass&gt;&gt;</text>
+      <text x="145" y="32" text-anchor="middle" class="cls-header-text">Vehicle</text>
+      <line x1="0" y1="38" x2="290" y2="38" stroke="#065F46" stroke-width="1"/>
+      <!-- Attributes -->
+      <text x="12" y="60" class="code-member">- regNo: String</text>
+      <line x1="0" y1="70" x2="290" y2="70" stroke="#F1F5F9" stroke-width="1"/>
+      <!-- Methods -->
+      <text x="12" y="92" class="code-member">+ Vehicle(regNo: String)</text>
+      <text x="12" y="114" class="code-member">+ getRegNo(): String</text>
+      <text x="12" y="136" class="code-member">+ setRegNo(regNo): void</text>
+      <text x="12" y="158" class="code-member">+ {abstract} ratePerHour():</text>
+      <text x="26" y="176" class="code-member">  double</text>
+    </g>
+
+    <!-- Class: ParkingSpot -->
+    <g transform="translate(335, 40)" filter="url(#soft-shadow)">
+      <rect width="275" height="240" rx="6" fill="#FFFFFF" stroke="#86EFAC" stroke-width="1.5"/>
+      <path d="M 0,6 A 6,6 0 0,1 6,0 L 269,0 A 6,6 0 0,1 275,6 L 275,38 L 0,38 Z" fill="#047857"/>
+      <text x="137" y="18" text-anchor="middle" class="cls-meta-text">&lt;&lt;entity state&gt;&gt;</text>
+      <text x="137" y="32" text-anchor="middle" class="cls-header-text">ParkingSpot</text>
+      <line x1="0" y1="38" x2="275" y2="38" stroke="#047857" stroke-width="1"/>
+      <!-- Attributes -->
+      <text x="12" y="60" class="code-member">- floor: int</text>
+      <text x="12" y="80" class="code-member">- slot: int</text>
+      <text x="12" y="100" class="code-member">- vehicle: Vehicle</text>
+      <line x1="0" y1="110" x2="275" y2="110" stroke="#F1F5F9" stroke-width="1"/>
+      <!-- Methods -->
+      <text x="12" y="132" class="code-member">+ ParkingSpot(floor, slot)</text>
+      <text x="12" y="152" class="code-member">+ getFloor(): int, getSlot()</text>
+      <text x="12" y="172" class="code-member">+ getVehicle(): Vehicle</text>
+      <text x="12" y="192" class="code-member">+ isFree(): boolean</text>
+      <text x="12" y="212" class="code-member">+ park(v: Vehicle): void</text>
+      <text x="12" y="232" class="code-member">+ vacate(): void</text>
+    </g>
+
+    <!-- Subclass: Car -->
+    <g transform="translate(20, 290)" filter="url(#soft-shadow)">
+      <rect width="135" height="95" rx="6" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5"/>
+      <path d="M 0,6 A 6,6 0 0,1 6,0 L 129,0 A 6,6 0 0,1 135,6 L 135,30 L 0,30 Z" fill="#1E40AF"/>
+      <text x="67" y="21" text-anchor="middle" class="cls-header-text">Car</text>
+      <text x="10" y="52" class="code-member">+ Car(regNo)</text>
+      <text x="10" y="74" class="code-member">+ ratePerHour()</text>
+      <text x="10" y="88" class="code-comment">/* Rs 30.0 */</text>
+    </g>
+
+    <!-- Subclass: TwoWheeler -->
+    <g transform="translate(170, 290)" filter="url(#soft-shadow)">
+      <rect width="140" height="95" rx="6" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5"/>
+      <path d="M 0,6 A 6,6 0 0,1 6,0 L 134,0 A 6,6 0 0,1 140,6 L 140,30 L 0,30 Z" fill="#0F766E"/>
+      <text x="70" y="21" text-anchor="middle" class="cls-header-text">TwoWheeler</text>
+      <text x="10" y="52" class="code-member">+ TwoWheeler()</text>
+      <text x="10" y="74" class="code-member">+ ratePerHour()</text>
+      <text x="10" y="88" class="code-comment">/* Rs 10.0 */</text>
+    </g>
+
+    <!-- Encapsulation Defense Card -->
+    <g transform="translate(20, 415)">
+      <rect width="590" height="155" rx="6" fill="#FFFFFF" stroke="#86EFAC" stroke-width="1.2"/>
+      <rect width="5" height="155" rx="2" fill="#10B981"/>
+      <text x="16" y="24" font-family="'Segoe UI', sans-serif" font-size="12" font-weight="bold" fill="#065F46">ENCAPSULATION &amp; ARCHITECTURAL RULES (Task 10 Defense)</text>
+      <line x1="16" y1="32" x2="595" y2="32" stroke="#DCFCE7" stroke-width="1"/>
+      
+      <text x="16" y="52" font-family="'Segoe UI', sans-serif" font-size="11.5" fill="#1E293B">1. Private Fields &amp; Public Mutators: regNo in Vehicle and floor/slot in ParkingSpot are hidden.</text>
+      <text x="16" y="72" font-family="'Segoe UI', sans-serif" font-size="11.5" fill="#1E293B">2. Defensive Invariants: setRegNo() rejects null/blank; calculateFee() rejects negative durations.</text>
+      <text x="16" y="92" font-family="'Segoe UI', sans-serif" font-size="11.5" fill="#1E293B">3. Separation of Concerns: MainApp coordinates, ParkingService orchestrates, Spot tracks occupancy.</text>
+      <text x="16" y="112" font-family="'Segoe UI', sans-serif" font-size="11.5" fill="#1E293B">4. Integer Cache Invariant: Integer a=100, b=100 (a==b &#x2192; true); Integer c=200, d=200 (c==d &#x2192; false).</text>
+      <text x="16" y="132" font-family="'Segoe UI', sans-serif" font-size="11" fill="#059669" font-style="italic">&#x2714; Verified against active Task 10 source code and execution logs.</text>
+    </g>
+
+    <!-- Connectors inside model -->
+    <!-- Car to Vehicle -->
+    <path d="M 87,290 L 87,255 L 110,255 L 110,235" fill="none" stroke="#1E3A8A" stroke-width="2" marker-end="url(#generalization)"/>
+    <!-- TwoWheeler to Vehicle -->
+    <path d="M 240,290 L 240,255 L 160,255 L 160,235" fill="none" stroke="#1E3A8A" stroke-width="2" marker-end="url(#generalization)"/>
+    <!-- ParkingSpot to Vehicle -->
+    <path d="M 335,110 L 310,110" fill="none" stroke="#1E293B" stroke-width="1.8" marker-end="url(#assoc-arrow)"/>
+    <text x="314" y="102" class="mult-label">0..1</text>
+  </g>
+
+  <!-- Cross-Package Connectors (No Crossings) -->
+  <!-- MainApp to ParkingService -->
+  <path d="M 145,245 L 145,380" fill="none" stroke="#2563EB" stroke-width="1.8" stroke-dasharray="5,4" marker-end="url(#dep-arrow)"/>
+  <text x="155" y="310" class="conn-text">&lt;&lt;uses&gt;&gt;</text>
+
+  <!-- MainApp to Vehicle -->
+  <path d="M 295,150 L 375,150" fill="none" stroke="#2563EB" stroke-width="1.8" stroke-dasharray="5,4" marker-end="url(#dep-arrow)"/>
+  <text x="305" y="142" class="conn-text">&lt;&lt;creates&gt;&gt;</text>
+
+  <!-- ParkingService to ParkingSpot -->
+  <path d="M 315,440 L 780,440 L 780,335" fill="none" stroke="#1E3A8A" stroke-width="2" marker-start="url(#aggregation)"/>
+  <text x="325" y="432" class="mult-label">1</text>
+  <text x="758" y="350" class="mult-label">*</text>
+  <text x="490" y="432" class="conn-text">manages 2D spots</text>
+</svg>
