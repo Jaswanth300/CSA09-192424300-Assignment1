@@ -1,0 +1,12 @@
+# Compiled Java class files
+*.class
+bin/
+*/bin/
+
+# Temporary and log files
+*.log
+*.tmp
+
+# OS generated files
+Thumbs.db
+.DS_Store
