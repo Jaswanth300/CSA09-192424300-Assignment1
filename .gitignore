@@ -7,6 +7,11 @@ bin/
 *.log
 *.tmp
 
+# Reference PDFs from peers
+java assignment-2.pdf
+java assignment-3.pdf
+java Assingment-4.pdf
+
 # OS generated files
 Thumbs.db
 .DS_Store
