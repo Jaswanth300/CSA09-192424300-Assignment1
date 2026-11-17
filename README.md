@@ -8,7 +8,7 @@
 - **College:** SIMATS Engineering, Saveetha School of Engineering
 - **Java Platform:** OpenJDK 21 LTS / Java SE 26
 - **GitHub Profile:** [https://github.com/Jaswanth300](https://github.com/Jaswanth300)
-- **Primary Repository:** [https://github.com/Jaswanth300/CSA09-192424300-Assignment1](https://github.com/Jaswanth300/CSA09-192424300-Assignment1)
+- **Primary Repository:** [https://github.com/Jaswanth300/JAVA-Assignment](https://github.com/Jaswanth300/JAVA-Assignment)
 
 ---
 

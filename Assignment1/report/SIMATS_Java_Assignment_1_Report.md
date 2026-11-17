@@ -11,7 +11,7 @@
 - **Course / Subject**: Java Programming
 - **Course Code**: `CSA0921`
 - **Submission Repository**: `CSA09-192424300-Assignment1`
-- **GitHub Repository Link**: `https://github.com/Jaswanth300/CSA09-192424300-Assignment1`
+- **GitHub Repository Link**: `https://github.com/Jaswanth300/JAVA-Assignment`
 - **Target Java Version**: OpenJDK 21 LTS
 
 ---
